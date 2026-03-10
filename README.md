@@ -1,5 +1,7 @@
 # AI-Based Fundus Disease Screening System
 
+<img width="1536" height="1024" alt="Image" src="https://github.com/user-attachments/assets/3589c3de-3481-4549-bbd5-7cd6e7472ff1" />
+
 AI-assisted retinal disease screening system using deep learning and explainable AI.
 
 This project explores the development of an AI-assisted retinal disease screening system using fundus images.
