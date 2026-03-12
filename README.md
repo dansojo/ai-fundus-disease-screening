@@ -20,16 +20,22 @@ Workflow
 
 Fundus Image Capture
 ↓
+
 Hospital System / Upload
 ↓
+
 AI Screening Model
 ↓
+
 Top-3 Disease Prediction
 ↓
+
 Explainable AI (GradCAM)
 ↓
+
 Risk Score Assessment
 ↓
+
 Doctor Review
 
 ---
