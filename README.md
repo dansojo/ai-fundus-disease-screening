@@ -14,7 +14,7 @@ This project explores an **AI-assisted retinal disease screening system** that a
 
 # System Architecture
 
-(여기에 **전체 서비스 구조 설명 아키텍처 이미지** 삽입)
+<img width="1264" height="842" alt="Image" src="https://github.com/user-attachments/assets/34a225aa-c58d-43b5-9e2a-fbebbeacc462" />
 
 Workflow
 
