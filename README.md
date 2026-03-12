@@ -1,7 +1,5 @@
 # AI-Based Fundus Disease Screening System
 
-![System Architecture](figures/system_architecture.png)
-
 ---
 
 # Project Overview
@@ -15,8 +13,6 @@ This project explores an **AI-assisted retinal disease screening system** that a
 ---
 
 # System Architecture
-
-![System Architecture](figures/system_architecture.png)
 
 (여기에 **전체 서비스 구조 설명 아키텍처 이미지** 삽입)
 
