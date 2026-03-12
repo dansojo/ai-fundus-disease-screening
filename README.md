@@ -19,21 +19,27 @@ This project explores an **AI-assisted retinal disease screening system** that a
 Workflow
 
 Fundus Image Capture
+
 ↓
 
 Hospital System / Upload
+
 ↓
 
 AI Screening Model
+
 ↓
 
 Top-3 Disease Prediction
+
 ↓
 
 Explainable AI (GradCAM)
+
 ↓
 
 Risk Score Assessment
+
 ↓
 
 Doctor Review
