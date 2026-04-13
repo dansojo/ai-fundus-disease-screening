@@ -204,6 +204,51 @@ This helps medical professionals understand why the model made a specific predic
 
 ---
 
+Class-wise Model Reliability Analysis
+
+Based on Grad-CAM visualization, we analyzed how reliably the model identifies disease-specific features for each class.
+
+We categorized the model behavior into three levels:
+
+🟢 Good (Reliable)
+Diabetic Retinopathy
+Retinitis Pigmentosa
+Glaucoma
+
+→ The model consistently focused on clinically meaningful lesion regions.
+
+🟡 Partial (Unstable)
+Macular Scar
+Central Serous Chorioretinopathy
+Disc Edema
+Retinal Detachment
+
+→ The model partially captured lesion areas but showed inconsistent or biased attention patterns.
+
+🔴 Poor (Unreliable)
+Pterygium
+Myopia
+Healthy
+
+→ The model failed to identify meaningful features or relied on irrelevant regions.
+
+Key Insight
+
+The analysis reveals that model performance is not uniform across classes.
+Some diseases with strong visual patterns are well learned, while others with weak or ambiguous features are not reliably captured.
+
+This highlights the importance of class-wise evaluation beyond overall accuracy metrics.
+
+Representative Grad-CAM Examples
+
+(여기에 Good 클래스 대표 Grad-CAM 이미지 1장 넣는 곳)
+
+(여기에 Partial 클래스 대표 Grad-CAM 이미지 1장 넣는 곳)
+
+(여기에 Poor 클래스 대표 Grad-CAM 이미지 1장 넣는 곳)
+
+---
+
 # Potential Clinical Workflow
 
 Possible usage in a clinical environment
