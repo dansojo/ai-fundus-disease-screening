@@ -272,7 +272,7 @@ This allows us to verify whether the model focuses on clinically relevant region
 <table align="center">
   <tr>
     <td align="center">
-      <img src="figures/system_architecture.png" width="800"/>
+      <img src="https://github.com/user-attachments/assets/f1e9626a-b2bb-4a6f-aa82-54776ea61a8f" height="500"/><br/>
       <b>Original / Heatmap / Overlay Visualization (5 Samples)</b>
     </td>
   </tr>
