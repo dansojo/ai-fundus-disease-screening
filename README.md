@@ -184,11 +184,71 @@ Macro F1 ≈ 0.90
 
 # Confusion Matrix
 
-The confusion matrix shows model prediction performance across all classes.
+The confusion matrix was used to analyze the model's prediction behavior across all classes.
 
-![Confusion Matrix](figures/confusion_matrix.png)
+To better understand class-wise performance and misclassification patterns, **row-normalized confusion matrices** were used instead of raw count matrices.
 
-(여기에 **Confusion Matrix 이미지 삽입**)
+---
+
+## Comparison of Training Strategies
+
+### A. Class Weight + Focal Loss
+<img width="1440" height="1440" alt="Image" src="https://github.com/user-attachments/assets/2ec06c01-e053-4371-a0b0-8c6a50f3bc1b" />
+
+### B. Oversampling + Focal Loss
+<img width="1440" height="1440" alt="Image" src="https://github.com/user-attachments/assets/da8a03c8-7009-48e9-8edc-63fc0e21beab" />
+
+---
+
+## Key Observations
+
+- Most classes show strong classification performance with high diagonal dominance.
+- Several classes (e.g., Class 1, 2, 7, 8, 9) are classified almost perfectly, indicating clear and distinguishable visual patterns.
+
+---
+
+### Confusion Patterns
+
+- Misclassification mainly occurs among visually similar classes.
+- Notable confusion is observed between:
+  - Class 3 ↔ Class 4
+  - Class 3 ↔ Class 5
+  - Class 6 ↔ Class 3
+
+This suggests that the model struggles to distinguish diseases with **similar lesion locations and visual characteristics**, particularly around the macular region.
+
+---
+
+### Strategy Comparison
+
+- **Class Weight + Focal Loss (A)** shows more stable and consistent performance across classes.
+- **Oversampling + Focal Loss (B)** slightly increases misclassification in certain classes.
+
+This is likely due to:
+- Repeated samples in oversampling
+- Increased risk of overfitting
+- Introduction of noise in minority classes
+
+---
+
+## Final Insight
+
+Although both strategies achieve strong overall performance,  
+**Class Weighting provides a better balance between stability and generalization.**
+
+Oversampling helps address class imbalance but may introduce unintended bias and noise.
+
+---
+
+## Conclusion
+
+The confusion matrix analysis reveals that:
+
+- The model performs well on most classes
+- Performance degradation occurs primarily between visually similar diseases
+- Careful handling of class imbalance is critical for stable learning
+
+These findings are consistent with Grad-CAM analysis, where the model tends to focus on overlapping anatomical regions across similar disease categories.
 
 ---
 
