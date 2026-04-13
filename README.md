@@ -261,13 +261,35 @@ These findings are consistent with Grad-CAM analysis, where the model tends to f
 
 # Explainable AI
 
-To improve model interpretability, **GradCAM** was applied.
+To improve model interpretability, **Grad-CAM** was applied to visualize the image regions that influenced model predictions.
 
-GradCAM visualizes the image regions that influenced model predictions.
+This allows us to verify whether the model focuses on clinically relevant regions rather than relying on irrelevant patterns.
 
-This helps medical professionals understand why the model made a specific prediction.
+---
 
-(여기에 **GradCAM 예시 이미지 넣을 자리**)
+## Example: Glaucoma
+
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/f1e9626a-b2bb-4a6f-aa82-54776ea61a8f" width="90%"/><br/>
+      <b>Original / Heatmap / Overlay Visualization (5 Samples)</b>
+    </td>
+  </tr>
+</table>
+
+<p align="center">
+The model primarily focuses on the optic disc region when predicting glaucoma.
+</p>
+
+---
+
+### Interpretation
+
+Glaucoma is associated with structural changes in the optic disc, such as an increased cup-to-disc ratio.
+
+The Grad-CAM visualization shows that the model consistently attends to the optic disc region, which aligns with clinically relevant features.  
+However, in some cases, attention is spread beyond the target region, indicating that the model has not fully learned fine-grained structural characteristics.
 
 ---
 
