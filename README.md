@@ -192,15 +192,18 @@ To better understand class-wise performance and misclassification patterns, **ro
 
 ## Comparison of Training Strategies
 
-<div align="center">
-  <img src="https://github.com/user-attachments/assets/2ec06c01-e053-4371-a0b0-8c6a50f3bc1b" width="44%" />
-  <img src="https://github.com/user-attachments/assets/da8a03c8-7009-48e9-8edc-63fc0e21beab" width="44%" />
-</div>
-
-<p align="center">
-  <b>A.</b> Class Weight + Focal Loss &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <b>B.</b> Oversampling + Focal Loss
-</p>
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/2ec06c01-e053-4371-a0b0-8c6a50f3bc1b" width="100%"/><br/>
+      <b>A.</b> Class Weight + Focal Loss
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/da8a03c8-7009-48e9-8edc-63fc0e21beab" width="100%"/><br/>
+      <b>B.</b> Oversampling + Focal Loss
+    </td>
+  </tr>
+</table>
 
 ---
 
