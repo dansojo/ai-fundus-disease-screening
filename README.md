@@ -146,59 +146,111 @@ The ultimate goal is to design an AI screening system that not only predicts dis
 
 ---
 
-# Dataset
+# Dataset & Exploratory Data Analysis
 
-Dataset used: **Eye Disease Image Dataset**
+## 📂 Dataset Overview
 
-Source Hospitals
+This project uses the **Eye Disease Image Dataset**, collected from multiple clinical sources.
 
-* Anwara Hamida Eye Hospital
-* BNS Zahrul Haque Eye Hospital
-* Bangladesh
-
-Dataset statistics
-
-Total images: **21,577**
-
-Original images: **5,335**
-Augmented images: **16,242**
-
-Number of classes: **10**
-
-(여기에 **클래스별 데이터 분포 그래프 이미지 넣을 자리**)
-
-(여기에 **클래스별 샘플 이미지 예시 넣을 자리**)
-
-Disease classes include
-
-* Central Serous Chorioretinopathy
-* Diabetic Retinopathy
-* Disc Edema
-* Glaucoma
-* Healthy
-* Macular Scar
-* Myopia
-* Pterygium
-* Retinal Detachment
-* Retinitis Pigmentosa
+본 프로젝트는 실제 병원에서 수집된 안저 이미지 데이터셋을 활용합니다.
 
 ---
 
-# Exploratory Data Analysis
+### 🏥 Data Source
 
-EDA was conducted to understand dataset characteristics.
+- Anwara Hamida Eye Hospital  
+- BNS Zahrul Haque Eye Hospital  
+- Bangladesh  
 
-Key observations
+---
 
-* Dataset includes strong **class imbalance**
-* Image brightness and quality vary
-* Augmented images are included in the dataset
+### 📊 Dataset Statistics
 
-(여기에 **클래스 불균형 그래프 이미지 넣을 자리**)
+- **Total images:** 21,577  
+- **Original images:** 5,335  
+- **Augmented images:** 16,242  
+- **Number of classes:** 10  
 
-(여기에 **RGB 채널 분석 시각화 이미지 넣을 자리**)
+---
 
-(여기에 **이미지 해상도 분석 그래프 넣을 자리**)
+### 🧾 Disease Classes
+
+- Central Serous Chorioretinopathy  
+- Diabetic Retinopathy  
+- Disc Edema  
+- Glaucoma  
+- Healthy  
+- Macular Scar  
+- Myopia  
+- Pterygium  
+- Retinal Detachment  
+- Retinitis Pigmentosa  
+
+---
+
+### 📈 Data Distribution
+
+<div align="center">
+  (여기에 클래스별 데이터 분포 그래프 이미지 넣는 곳)
+</div>
+
+---
+
+### 🖼️ Sample Images
+
+<div align="center">
+  (여기에 클래스별 샘플 이미지 예시 넣는 곳)
+</div>
+
+---
+
+## 🔍 Exploratory Data Analysis
+
+EDA was conducted to understand dataset characteristics and identify potential challenges affecting model performance.
+
+데이터의 특성과 학습에 영향을 줄 수 있는 요소를 파악하기 위해 EDA를 수행했습니다.
+
+---
+
+### ⚠️ Key Observations
+
+- **Severe class imbalance exists across disease categories**  
+- **Image brightness and quality vary significantly**  
+- **Augmented images are included and may affect distribution**
+
+---
+
+### 📊 Class Imbalance
+
+<div align="center">
+  (여기에 클래스 불균형 그래프 이미지 넣는 곳)
+</div>
+
+---
+
+### 🎨 RGB Channel Analysis
+
+<div align="center">
+  (여기에 RGB 채널 분석 시각화 이미지 넣는 곳)
+</div>
+
+---
+
+### 📐 Image Resolution Analysis
+
+<div align="center">
+  (여기에 이미지 해상도 분석 그래프 넣는 곳)
+</div>
+
+---
+
+### 💡 Summary
+
+- 데이터셋은 클래스 간 불균형이 심하게 존재함  
+- 이미지 품질(밝기, 대비)이 일정하지 않음  
+- 증강 데이터가 포함되어 있어 분포 왜곡 가능성 존재  
+
+→ 이러한 특성은 모델 학습 및 일반화 성능에 직접적인 영향을 미칠 수 있음
 
 ---
 
