@@ -1,67 +1,58 @@
 # AI-Based Fundus Disease Screening System
 
-## Project Overview
+# Project Overview
 
-Retinal diseases such as diabetic retinopathy, glaucoma, and retinal detachment are major causes of vision loss worldwide. Early detection is essential for preventing irreversible damage, but large-scale screening remains difficult in many healthcare settings due to limited specialist availability.
+Retinal diseases such as diabetic retinopathy, glaucoma, and retinal detachment are major causes of vision loss worldwide. Early detection is essential for preventing irreversible damage, but large-scale screening remains challenging in many healthcare settings due to limited specialist availability.
 
 망막 질환은 전 세계적으로 실명 원인 중 큰 비중을 차지하며, 조기 발견이 매우 중요합니다.  
 하지만 전문 인력 부족으로 인해 대규모 스크리닝 시스템 구축에는 한계가 존재합니다.
 
 ---
 
-This project explores an **AI-assisted fundus disease screening system** that classifies retinal fundus images into **10 disease categories** and provides **visual explanations through Grad-CAM**.
+This project presents an **AI-assisted fundus disease screening system** that classifies retinal fundus images into **10 disease categories** and provides **visual explanations using Grad-CAM**.
 
 본 프로젝트는 안저 이미지를 기반으로 **10가지 질환을 분류하고**,  
-**Grad-CAM을 통해 모델의 판단 근거를 시각적으로 제공하는 AI 기반 스크리닝 시스템**을 구현하는 것을 목표로 합니다.
+**Grad-CAM을 통해 모델의 판단 근거를 시각적으로 제공하는 AI 기반 스크리닝 시스템**을 구현합니다.
 
-The goal is not to replace medical diagnosis, but to support clinicians by identifying suspicious cases and presenting interpretable evidence for model predictions.
+The system is designed not to replace medical diagnosis, but to support clinicians by identifying high-risk cases and providing interpretable prediction results.
 
 해당 시스템은 의료 진단을 대체하는 것이 아닌,  
-의심 환자를 선별하고 의료진의 판단을 보조하는 역할을 수행합니다.
+고위험 환자를 선별하고 의료진의 판단을 보조하는 역할을 수행합니다.
 
 ---
 
-### 🔍 Key Questions
+## 🚀 Key Features
 
-이 프로젝트는 단순한 분류 성능을 넘어서 다음과 같은 핵심 질문에 집중합니다:
-
-- **Can the model reliably distinguish visually similar retinal diseases?**  
-  → 시각적으로 유사한 질환을 안정적으로 구분할 수 있는가?
-
-- **Is the model actually looking at clinically meaningful regions when making predictions?**  
-  → 모델이 실제로 의학적으로 의미 있는 영역을 보고 판단하고 있는가?
-
----
-
-### 🚀 What This Project Includes
-
-이러한 문제를 해결하기 위해 다음과 같은 접근을 수행했습니다:
+본 프로젝트는 다음과 같은 핵심 기능을 포함합니다:
 
 - **10-class retinal disease classification**
-- **Class-wise confusion matrix analysis**
-- **Grad-CAM-based interpretability analysis**
-- **Gradio demo deployment (interactive screening simulation)**
+- **Top-3 prediction with probability scores**
+- **Risk level assessment**
+- **Grad-CAM-based visual explanation**
+- **Class-wise performance analysis (Confusion Matrix)**
+- **Gradio-based interactive demo**
 
 ---
 
-### 💡 Summary
+## 💡 Summary
 
 This project goes beyond simple classification and focuses on **model interpretability and reliability in medical imaging**.
 
 단순한 분류 모델을 넘어, **모델의 판단 근거와 신뢰성을 분석하는 것에 초점을 맞춘 프로젝트**입니다.
 
-## 🔗 Live Demo
+---
+
+# 🔗 Live Demo
 
 👉 [🚀 Fundus Vision Demo 바로가기](https://huggingface.co/spaces/Danso0614/fundus-vision)
 
 This demo allows users to experience the AI-based fundus disease screening system.
 
-AI 기반 안저 질환 분류 및 설명 시스템을 직접 체험해볼 수 있습니다.
+AI 기반 안저 질환 분류 및 설명 시스템을 직접 체험할 수 있습니다:
 
-- 이미지를 업로드하면 질환 예측 결과를 확인할 수 있습니다.
-- Top-3 질환 예측 및 위험도를 제공합니다.
-- Grad-CAM을 통해 모델이 판단한 근거를 시각적으로 확인할 수 있습니다.
-
+- 이미지를 업로드하여 질환 예측 결과 확인  
+- Top-3 질환 예측 및 위험도 제공  
+- Grad-CAM 기반 시각적 설명 확인  
 ---
 
 # System Architecture
@@ -118,11 +109,41 @@ This architecture is not designed to replace doctors, but to **assist clinical d
 
 # Problem Statement
 
-Retinal diseases require early detection, but large-scale screening is difficult in many healthcare environments.
+While deep learning models have shown strong performance in fundus image classification, most approaches focus primarily on improving overall accuracy.
 
-AI-assisted screening systems can support clinicians by identifying high-risk cases and prioritizing further medical examination.
+하지만 기존의 안저 이미지 분류 모델들은 높은 정확도를 달성하는 데 집중되어 있으며, 실제 의료 환경에서 중요한 문제는 충분히 다루지 못하고 있습니다.
 
-This project focuses on designing a **screening-support AI system**, not a replacement for medical diagnosis.
+---
+
+### ❗ Key Challenges
+
+- **Do models truly learn disease-specific features, or rely on spurious patterns?**  
+  → 모델이 실제 병변을 이해하는가, 아니면 단순한 패턴에 의존하는가?
+
+- **Can visually similar retinal diseases be reliably distinguished?**  
+  → 시각적으로 유사한 질환을 안정적으로 구분할 수 있는가?
+
+- **Are model predictions interpretable and trustworthy in a clinical context?**  
+  → 모델의 예측 결과를 의료적으로 신뢰할 수 있는가?
+
+---
+
+### 🎯 Objective
+
+This project aims to move beyond simple classification and focuses on evaluating **model reliability and interpretability**.
+
+본 프로젝트는 단순한 분류 정확도를 넘어서,  
+**모델의 판단 근거와 신뢰성을 분석하는 것**에 초점을 맞추고 있습니다.
+
+To achieve this, we analyze model behavior using:
+
+- Grad-CAM for visual explanation  
+- Confusion matrix for class-wise reliability  
+- Comparative experiments for imbalance handling  
+
+---
+
+The ultimate goal is to design an AI screening system that not only predicts diseases, but also provides **clinically meaningful and interpretable insights**.
 
 ---
 
