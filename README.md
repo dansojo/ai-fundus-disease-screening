@@ -1,29 +1,21 @@
-# AI-Based Fundus Disease Screening System
+# 🩺 Fundus Vision  
+### AI-Based Retinal Disease Screening & Explainable Analysis System
+
+> AI-powered fundus disease classification with interpretability and clinical insight
+
+---
 
 # Project Overview
 
 Retinal diseases such as diabetic retinopathy, glaucoma, and retinal detachment are major causes of vision loss worldwide. Early detection is essential for preventing irreversible damage, but large-scale screening remains challenging in many healthcare settings due to limited specialist availability.
 
-망막 질환은 전 세계적으로 실명 원인 중 큰 비중을 차지하며, 조기 발견이 매우 중요합니다.  
-하지만 전문 인력 부족으로 인해 대규모 스크리닝 시스템 구축에는 한계가 존재합니다.
-
----
-
 This project presents an **AI-assisted fundus disease screening system** that classifies retinal fundus images into **10 disease categories** and provides **visual explanations using Grad-CAM**.
 
-본 프로젝트는 안저 이미지를 기반으로 **10가지 질환을 분류하고**,  
-**Grad-CAM을 통해 모델의 판단 근거를 시각적으로 제공하는 AI 기반 스크리닝 시스템**을 구현합니다.
-
 The system is designed not to replace medical diagnosis, but to support clinicians by identifying high-risk cases and providing interpretable prediction results.
-
-해당 시스템은 의료 진단을 대체하는 것이 아닌,  
-고위험 환자를 선별하고 의료진의 판단을 보조하는 역할을 수행합니다.
 
 ---
 
 ## 🚀 Key Features
-
-본 프로젝트는 다음과 같은 핵심 기능을 포함합니다:
 
 - **10-class retinal disease classification**
 - **Top-3 prediction with probability scores**
@@ -34,11 +26,18 @@ The system is designed not to replace medical diagnosis, but to support clinicia
 
 ---
 
-## 💡 Summary
+## 💡 한눈에 보기 (Summary)
+
+- 안저 이미지를 기반으로 **10가지 질환 분류**
+- **Top-3 예측 + 위험도(Risk Level) 제공**
+- **Grad-CAM을 통한 판단 근거 시각화**
+- 의료진의 진단을 보조하는 **AI 스크리닝 시스템**
+
+---
+
+## 🎯 Project Focus
 
 This project goes beyond simple classification and focuses on **model interpretability and reliability in medical imaging**.
-
-단순한 분류 모델을 넘어, **모델의 판단 근거와 신뢰성을 분석하는 것에 초점을 맞춘 프로젝트**입니다.
 
 ---
 
