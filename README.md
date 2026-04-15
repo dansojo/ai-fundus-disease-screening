@@ -1,14 +1,23 @@
 # AI-Based Fundus Disease Screening System
 
----
+## Project Overview
 
-# Project Overview
+Retinal diseases such as diabetic retinopathy, glaucoma, and retinal detachment are major causes of vision loss worldwide. Early detection is essential for preventing irreversible damage, but large-scale screening remains difficult in many healthcare settings due to limited specialist availability.
 
-Retinal diseases such as diabetic retinopathy, glaucoma, and retinal detachment are major causes of vision loss worldwide.
+This project explores an **AI-assisted fundus disease screening system** that classifies retinal fundus images into **10 disease categories** and provides **visual explanations through Grad-CAM**. The goal is not to replace medical diagnosis, but to support clinicians by identifying suspicious cases and presenting interpretable evidence for model predictions.
 
-Early detection plays a critical role in preventing permanent damage. However, large-scale screening remains challenging due to the limited number of specialists.
+In addition to classification performance, this project focuses on two practical questions:
 
-This project explores an **AI-assisted retinal disease screening system** that analyzes fundus images and predicts potential diseases while providing visual explanations to support medical professionals.
+- Can the model reliably distinguish visually similar retinal diseases?
+- Is the model actually looking at clinically meaningful regions when making predictions?
+
+To address these questions, the project includes:
+- **10-class retinal disease classification**
+- **class-wise confusion matrix analysis**
+- **Grad-CAM-based interpretability analysis**
+- **Gradio demo deployment for interactive screening simulation**
+
+**Live Demo:** [Hugging Face Space]([여기에-링크](https://huggingface.co/spaces/Danso0614/fundus-vision))
 
 ---
 
