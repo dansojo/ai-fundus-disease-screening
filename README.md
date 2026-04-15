@@ -17,7 +17,9 @@ To address these questions, the project includes:
 - **Grad-CAM-based interpretability analysis**
 - **Gradio demo deployment for interactive screening simulation**
 
-**Live Demo:** [Hugging Face Space]([여기에-링크](https://huggingface.co/spaces/Danso0614/fundus-vision))
+## 🔗 Live Demo
+
+[🚀 Try Fundus Vision Demo](https://huggingface.co/spaces/Danso0614/fundus-vision)
 
 ---
 
