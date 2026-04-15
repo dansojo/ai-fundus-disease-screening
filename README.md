@@ -66,35 +66,53 @@ AI 기반 안저 질환 분류 및 설명 시스템을 직접 체험해볼 수 �
 
 # System Architecture
 
-<img width="1264" height="842" alt="Image" src="https://github.com/user-attachments/assets/34a225aa-c58d-43b5-9e2a-fbebbeacc462" />
+The overall system is designed to simulate a **real-world clinical screening workflow** using AI-assisted analysis.
 
-Workflow
+본 시스템은 실제 의료 환경에서 활용 가능한 **AI 기반 안저 질환 스크리닝 흐름**을 반영하여 설계되었습니다.
 
-Fundus Image Capture
+---
 
-↓
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/34a225aa-c58d-43b5-9e2a-fbebbeacc462" width="70%"/>
+</div>
 
-Hospital System / Upload
+---
 
-↓
+## 🔄 Workflow
 
-AI Screening Model
+The system follows a step-by-step pipeline:
 
-↓
+본 시스템은 다음과 같은 단계로 동작합니다:
 
-Top-3 Disease Prediction
+1. **Fundus Image Capture**  
+   → 안저 카메라를 통해 환자의 망막 이미지 획득
 
-↓
+2. **Hospital System / Upload**  
+   → 병원 시스템 또는 플랫폼을 통해 이미지 업로드
 
-Explainable AI (GradCAM)
+3. **AI Screening Model**  
+   → 딥러닝 모델이 입력 이미지를 분석
 
-↓
+4. **Top-3 Disease Prediction**  
+   → 가장 가능성이 높은 질환 3개를 확률과 함께 출력
 
-Risk Score Assessment
+5. **Explainable AI (Grad-CAM)**  
+   → 모델이 판단한 근거를 시각적으로 제공
 
-↓
+6. **Risk Score Assessment**  
+   → 질환 위험도를 기반으로 추가 검사 필요성 판단
 
-Doctor Review
+7. **Doctor Review**  
+   → 의료진이 AI 결과를 참고하여 최종 판단 수행
+
+---
+
+## 💡 Key Insight
+
+This architecture is not designed to replace doctors, but to **assist clinical decision-making by prioritizing high-risk cases and providing interpretable evidence**.
+
+본 시스템은 의료진을 대체하는 것이 아니라,  
+**고위험 환자를 선별하고 판단 근거를 제공하여 진단을 보조하는 역할**을 수행합니다.
 
 ---
 
