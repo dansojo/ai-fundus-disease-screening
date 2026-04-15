@@ -4,22 +4,63 @@
 
 Retinal diseases such as diabetic retinopathy, glaucoma, and retinal detachment are major causes of vision loss worldwide. Early detection is essential for preventing irreversible damage, but large-scale screening remains difficult in many healthcare settings due to limited specialist availability.
 
-This project explores an **AI-assisted fundus disease screening system** that classifies retinal fundus images into **10 disease categories** and provides **visual explanations through Grad-CAM**. The goal is not to replace medical diagnosis, but to support clinicians by identifying suspicious cases and presenting interpretable evidence for model predictions.
+망막 질환은 전 세계적으로 실명 원인 중 큰 비중을 차지하며, 조기 발견이 매우 중요합니다.  
+하지만 전문 인력 부족으로 인해 대규모 스크리닝 시스템 구축에는 한계가 존재합니다.
 
-In addition to classification performance, this project focuses on two practical questions:
+---
 
-- Can the model reliably distinguish visually similar retinal diseases?
-- Is the model actually looking at clinically meaningful regions when making predictions?
+This project explores an **AI-assisted fundus disease screening system** that classifies retinal fundus images into **10 disease categories** and provides **visual explanations through Grad-CAM**.
 
-To address these questions, the project includes:
+본 프로젝트는 안저 이미지를 기반으로 **10가지 질환을 분류하고**,  
+**Grad-CAM을 통해 모델의 판단 근거를 시각적으로 제공하는 AI 기반 스크리닝 시스템**을 구현하는 것을 목표로 합니다.
+
+The goal is not to replace medical diagnosis, but to support clinicians by identifying suspicious cases and presenting interpretable evidence for model predictions.
+
+해당 시스템은 의료 진단을 대체하는 것이 아닌,  
+의심 환자를 선별하고 의료진의 판단을 보조하는 역할을 수행합니다.
+
+---
+
+### 🔍 Key Questions
+
+이 프로젝트는 단순한 분류 성능을 넘어서 다음과 같은 핵심 질문에 집중합니다:
+
+- **Can the model reliably distinguish visually similar retinal diseases?**  
+  → 시각적으로 유사한 질환을 안정적으로 구분할 수 있는가?
+
+- **Is the model actually looking at clinically meaningful regions when making predictions?**  
+  → 모델이 실제로 의학적으로 의미 있는 영역을 보고 판단하고 있는가?
+
+---
+
+### 🚀 What This Project Includes
+
+이러한 문제를 해결하기 위해 다음과 같은 접근을 수행했습니다:
+
 - **10-class retinal disease classification**
-- **class-wise confusion matrix analysis**
+- **Class-wise confusion matrix analysis**
 - **Grad-CAM-based interpretability analysis**
-- **Gradio demo deployment for interactive screening simulation**
+- **Gradio demo deployment (interactive screening simulation)**
+
+---
+
+### 💡 Summary
+
+This project goes beyond simple classification and focuses on **model interpretability and reliability in medical imaging**.
+
+단순한 분류 모델을 넘어, **모델의 판단 근거와 신뢰성을 분석하는 것에 초점을 맞춘 프로젝트**입니다.
 
 ## 🔗 Live Demo
 
-[🚀 Try Fundus Vision Demo](https://huggingface.co/spaces/Danso0614/fundus-vision)
+👉 [🚀 Fundus Vision Demo 바로가기](https://huggingface.co/spaces/Danso0614/fundus-vision)
+
+This demo allows users to experience the AI-based fundus disease screening system.
+
+AI 기반 안저 질환 분류 및 설명 시스템을 직접 체험해볼 수 있습니다.
+
+- 이미지를 업로드하면 질환 예측 결과를 확인할 수 있습니다.
+- Top-3 질환 예측 및 위험도를 제공합니다.
+- Grad-CAM을 통해 모델이 판단한 근거를 시각적으로 확인할 수 있습니다.
 
 ---
 
