@@ -254,54 +254,79 @@ EDA was conducted to understand dataset characteristics and identify potential c
 
 ---
 
-# Model Development
+# Model & Training Strategy
 
-Model architecture
+## 🧠 Model Architecture
 
-ConvNeXtV2 Tiny
+The model is based on **ConvNeXtV2 Tiny**, a modern convolutional neural network architecture designed for strong performance and efficiency.
 
-Framework
-
-PyTorch
-
-Training strategy
-
-Transfer learning with pretrained ImageNet weights.
-
-Training configuration
-
-Image size: 224 × 224
-Optimizer: AdamW
-Scheduler: CosineAnnealingLR
-Mixed Precision Training (AMP)
-
-(여기에 **모델 구조 설명 이미지 넣을 자리 (ConvNeXt 구조)**)
+본 프로젝트에서는 최신 CNN 구조인 **ConvNeXtV2 Tiny**를 사용하여 높은 성능과 효율성을 동시에 확보하고자 했습니다.
 
 ---
 
-# Experiment Design
+### ⚙️ Training Setup
 
-Class imbalance was identified as the main challenge.
+- **Framework:** PyTorch  
+- **Input size:** 224 × 224  
+- **Optimizer:** AdamW  
+- **Scheduler:** CosineAnnealingLR  
+- **Mixed Precision Training (AMP):** Enabled  
 
-Two strategies were tested.
+The model was trained using **transfer learning with pretrained ImageNet weights**, allowing faster convergence and improved generalization.
 
-### Experiment A
+---
 
-Class Weight + Focal Loss
+<div align="center">
+  (여기에 ConvNeXt 구조 설명 이미지 넣는 곳)
+</div>
 
-Purpose
+---
 
+## ⚠️ Challenge: Class Imbalance
+
+During data analysis, **severe class imbalance** was identified as a major challenge affecting model performance.
+
+데이터 분석 과정에서 클래스 간 데이터 수 불균형이 심하게 존재하는 것을 확인하였으며, 이는 모델의 편향을 유발할 수 있는 주요 문제로 판단되었습니다.
+
+---
+
+## 🧪 Training Strategies
+
+To address this issue, two different approaches were explored:
+
+---
+
+### 🔹 Strategy A: Class Weight + Focal Loss
+
+**Goal:**  
 Reduce bias toward majority classes and focus learning on difficult samples.
 
-### Experiment B
+- Class weights were applied to balance loss contribution  
+- Focal Loss was used to emphasize hard examples  
 
-Oversampling + Focal Loss
+---
 
-Purpose
+### 🔹 Strategy B: Oversampling + Focal Loss
 
+**Goal:**  
 Increase minority class representation during training.
 
-(여기에 **실험 구조 설명 다이어그램 넣을 자리**)
+- Minority classes were oversampled  
+- Focal Loss applied for stable learning  
+
+---
+
+<div align="center">
+  (여기에 실험 구조 다이어그램 넣는 곳)
+</div>
+
+---
+
+### 💡 Summary
+
+- Class imbalance was the primary challenge in this dataset  
+- Two complementary strategies were tested to address it  
+- These approaches are further compared in the Results section
 
 ---
 
