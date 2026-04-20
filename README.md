@@ -332,30 +332,48 @@ Increase minority class representation during training.
 
 ---
 
-# Results
+# Results & Model Analysis
 
-Evaluation metrics
+## 📊 Overall Performance
 
-* Accuracy
-* Precision
-* Recall
-* Macro F1 Score
+The model achieved strong performance across all classes, demonstrating its capability to classify retinal diseases effectively.
 
-Best result
+본 모델은 전반적으로 높은 성능을 보였으며, 다양한 안저 질환을 효과적으로 분류할 수 있음을 확인하였습니다.
 
-Macro F1 ≈ 0.90
+- **Accuracy**
+- **Precision**
+- **Recall**
+- **Macro F1 Score**
 
-(여기에 **실험 결과 비교 표 이미지 넣을 자리**)
-
-(여기에 **A/B 실험 성능 비교 그래프 넣을 자리**)
+👉 Best performance: **Macro F1 ≈ 0.90**
 
 ---
 
-# Confusion Matrix
+## ⚖️ Strategy Comparison
 
-The confusion matrix was used to analyze the model's prediction behavior across all classes.
+To address class imbalance, two strategies were evaluated:
 
-To better understand class-wise performance and misclassification patterns, **row-normalized confusion matrices** were used instead of raw count matrices.
+- **A:** Class Weight + Focal Loss  
+- **B:** Oversampling + Focal Loss  
+
+---
+
+<div align="center">
+  (여기에 실험 결과 비교 표 이미지 넣는 곳)
+</div>
+
+<div align="center">
+  (여기에 A/B 성능 비교 그래프 넣는 곳)
+</div>
+
+---
+
+## 🔍 Confusion Matrix Analysis
+
+The confusion matrix was used to analyze class-wise prediction behavior and misclassification patterns.  
+Row-normalized matrices were used for better interpretability.
+
+혼동 행렬을 통해 클래스별 예측 패턴과 오분류 경향을 분석하였습니다.
 
 ---
 
@@ -376,55 +394,53 @@ To better understand class-wise performance and misclassification patterns, **ro
 
 ---
 
-## Key Observations
+### 🔎 Key Observations
 
-- Most classes show strong classification performance with high diagonal dominance.
-- Several classes (e.g., Class 1, 2, 7, 8, 9) are classified almost perfectly, indicating clear and distinguishable visual patterns.
-
----
-
-### Confusion Patterns
-
-- Misclassification mainly occurs among visually similar classes.
-- Notable confusion is observed between:
-  - Class 3 ↔ Class 4
-  - Class 3 ↔ Class 5
-  - Class 6 ↔ Class 3
-
-This suggests that the model struggles to distinguish diseases with **similar lesion locations and visual characteristics**, particularly around the macular region.
+- Most classes show strong classification performance with high diagonal dominance  
+- Several classes are classified almost perfectly, indicating clear visual patterns  
 
 ---
 
-### Strategy Comparison
+### ⚠️ Confusion Patterns
 
-- **Class Weight + Focal Loss (A)** shows more stable and consistent performance across classes.
-- **Oversampling + Focal Loss (B)** slightly increases misclassification in certain classes.
+- Misclassification mainly occurs among visually similar classes  
+- Notable confusion observed between:
+  - Class 3 ↔ Class 4  
+  - Class 3 ↔ Class 5  
+  - Class 6 ↔ Class 3  
 
-This is likely due to:
-- Repeated samples in oversampling
-- Increased risk of overfitting
-- Introduction of noise in minority classes
+→ 시각적으로 유사한 질환 간에서 혼동이 발생하는 경향을 확인할 수 있습니다.
+
+This suggests that the model struggles to distinguish diseases with **similar lesion locations and visual characteristics**, particularly in overlapping anatomical regions.
 
 ---
 
-## Final Insight
+### ⚖️ Strategy Insight
+
+- **Class Weight + Focal Loss (A)** shows more stable and consistent performance  
+- **Oversampling + Focal Loss (B)** slightly increases misclassification in certain classes  
+
+Possible reasons:
+
+- Repeated samples in oversampling  
+- Increased risk of overfitting  
+- Introduction of noise in minority classes  
+
+---
+
+## 💡 Final Insight
 
 Although both strategies achieve strong overall performance,  
 **Class Weighting provides a better balance between stability and generalization.**
 
-Oversampling helps address class imbalance but may introduce unintended bias and noise.
+단순 정확도는 높지만 클래스별 성능 편차가 존재하며,  
+특히 유사 질환 간 구분에서 어려움을 보였습니다.
 
 ---
 
-## Conclusion
+## 🔗 Next Step
 
-The confusion matrix analysis reveals that:
-
-- The model performs well on most classes
-- Performance degradation occurs primarily between visually similar diseases
-- Careful handling of class imbalance is critical for stable learning
-
-These findings are consistent with Grad-CAM analysis, where the model tends to focus on overlapping anatomical regions across similar disease categories.
+These findings are further analyzed using **Grad-CAM** in the next section to understand **where the model is focusing** during prediction.
 
 ---
 
