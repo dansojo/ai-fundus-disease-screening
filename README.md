@@ -445,11 +445,11 @@ These findings are further analyzed using **Grad-CAM** in the next section to un
 ---
 
 # Explainable AI
-
 To improve model interpretability, **Grad-CAM** was applied to visualize the image regions that influenced model predictions.
 
 This allows us to verify whether the model focuses on clinically relevant regions rather than relying on irrelevant patterns.
 
+Grad-CAM을 통해 모델이 실제로 어떤 영역을 보고 판단하는지 시각적으로 확인할 수 있습니다.
 ---
 
 ## Example: Glaucoma
@@ -471,11 +471,22 @@ The model primarily focuses on the optic disc region when predicting glaucoma.
 
 ### Interpretation
 
-Glaucoma is associated with structural changes in the optic disc, such as an increased cup-to-disc ratio.
+Glaucoma is characterized by structural changes in the optic disc, particularly an increased cup-to-disc ratio.
 
-The Grad-CAM visualization shows that the model consistently attends to the optic disc region, which aligns with clinically relevant features.  
-However, in some cases, attention is spread beyond the target region, indicating that the model has not fully learned fine-grained structural characteristics.
+The Grad-CAM visualization indicates that the model consistently focuses on the optic disc region, suggesting that it has learned clinically relevant features.  
+However, in some cases, the attention is diffused beyond the target region, indicating limitations in capturing fine-grained structural details.
 
+---
+
+### 💡 한눈에 보기
+
+- 녹내장은 시신경 유두(Optic Disc)의 구조적 변화가 중요한 질환  
+- 모델은 주요 병변 위치(시신경 유두)를 잘 인식하고 있음  
+- 하지만 일부 경우에서는 불필요한 영역까지 주목하는 경향 존재  
+
+→ 전반적으로는 올바른 특징을 학습했지만, 세밀한 구조 인식에는 한계가 있음
+
+These visualizations are further analyzed in the next section to evaluate model reliability across different classes.
 ---
 
 # Class-wise Model Reliability Analysis
@@ -523,66 +534,116 @@ Representative Grad-CAM Examples
 
 ---
 
-# Potential Clinical Workflow
+# Clinical Perspective
 
-Possible usage in a clinical environment
+This system is designed to simulate how AI-based screening could be integrated into real-world clinical workflows.
 
-Fundus camera captures retinal image
-↓
-Image uploaded to hospital system
-↓
-AI model analyzes image
-↓
-Disease risk score generated
-↓
-Doctor reviews AI suggestion
-
-(여기에 **병원 실제 사용 시나리오 흐름도 이미지 넣을 자리**)
+본 시스템은 실제 의료 환경에서 AI 기반 스크리닝이 어떻게 활용될 수 있는지를 가정하여 설계되었습니다.
 
 ---
 
-# Future Improvements
+## 🏥 Workflow
 
-Possible improvements
+1. **Fundus Image Capture**  
+   → 안저 카메라를 통해 환자의 망막 이미지 획득  
 
-* Expand dataset through hospital collaboration
-* Improve model performance with additional data
-* Deploy real-time clinical screening systems
-* Integrate into hospital diagnostic workflows
+2. **Image Upload**  
+   → 병원 시스템 또는 플랫폼에 이미지 업로드  
+
+3. **AI Analysis**  
+   → 딥러닝 모델이 이미지를 분석  
+
+4. **Disease Prediction & Risk Assessment**  
+   → Top-3 질환 예측 및 위험도 제공  
+
+5. **Explainable AI (Grad-CAM)**  
+   → 모델의 판단 근거 시각화  
+
+6. **Doctor Review**  
+   → 의료진이 AI 결과를 참고하여 최종 판단  
 
 ---
 
-# Limitations
+<div align="center">
+  (여기에 병원 사용 시나리오 흐름도 이미지 넣는 곳)
+</div>
 
-This project is intended for **research and educational purposes only**.
+---
 
-The system is not a certified medical device and should not replace professional medical diagnosis.
+### 💡 Insight
+
+The system is not intended to replace clinicians, but to **assist decision-making by prioritizing high-risk cases and providing interpretable evidence**.
+
+본 시스템은 의료진을 대체하는 것이 아니라,  
+고위험 환자를 선별하고 판단 근거를 제공하여 진단을 보조하는 역할을 수행합니다.
+
+---
+
+# Future Work & Limitations
+
+## ⚠️ Limitations
+
+- This project is intended for **research and educational purposes only**  
+- The system is **not a certified medical device**  
+- Performance may vary across datasets and real-world conditions  
+- Some classes show lower reliability due to subtle or ambiguous features  
+
+본 프로젝트는 연구 및 학습 목적의 시스템이며,  
+의료 기기로 인증된 모델이 아니므로 실제 진단을 대체할 수 없습니다.
+
+---
+
+## 🚀 Future Work
+
+- Expand dataset through real clinical data collection  
+- Improve performance for underrepresented classes  
+- Enhance model interpretability with advanced methods  
+- Optimize model for real-time deployment  
+- Integrate into clinical decision support systems  
+
+향후에는 데이터 확장, 성능 개선, 실시간 시스템 구축 등을 통해  
+실제 의료 환경에서 활용 가능한 수준으로 발전시키는 것을 목표로 합니다.
 
 ---
 
 # Repository Structure
 
+The repository is organized to reflect the full pipeline from data analysis to model deployment.
+
+본 레포지토리는 데이터 분석부터 모델 학습, 그리고 데모 구현까지의 전체 흐름을 반영하여 구성되어 있습니다.
+
 ```
 eye-disease-ai-screening
 │
-├ README.md
+├ README.md # Project documentation
 │
-├ figures
-│   ├ system_architecture.png
-│   ├ confusion_matrix.png
-│   └ gradcam_example.png
+├ figures # Visualizations used in README
+│ ├ system_architecture.png
+│ ├ confusion_matrix_A.png
+│ ├ confusion_matrix_B.png
+│ ├ gradcam_example.png
+│ └ eda_visualizations.png
 │
-├ notebooks
-│   ├ 01_EDA.ipynb
-│   ├ 02_training.ipynb
-│   └ 03_experiments.ipynb
+├ notebooks # Experiment and analysis notebooks
+│ ├ 01_EDA.ipynb # Data analysis & visualization
+│ ├ 02_training.ipynb # Model training pipeline
+│ └ 03_experiments.ipynb # Strategy comparison (A/B)
 │
-├ src
-│   ├ dataset.py
-│   ├ model.py
-│   ├ train.py
-│   └ inference.py
+├ src # Core implementation
+│ ├ dataset.py # Data loading & preprocessing
+│ ├ model.py # Model architecture definition
+│ ├ train.py # Training logic
+│ └ inference.py # Inference & evaluation
 │
-└ demo
-    └ gradio_app.py
+└ demo # Deployment (Gradio app)
+└ app.py # Interactive demo interface
 ```
+
+### 💡 Summary
+
+- **notebooks** → 데이터 분석 및 실험  
+- **src** → 모델 구현 및 학습 코드  
+- **figures** → README 시각화 자료  
+- **demo** → 실제 사용자 체험을 위한 서비스  
+
+→ 데이터 분석부터 모델 개발, 그리고 배포까지 전체 파이프라인을 포함한 프로젝트 구조입니다.
