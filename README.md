@@ -258,9 +258,11 @@ EDA was conducted to understand dataset characteristics and identify potential c
 
 ## 🧠 Model Architecture
 
-The model is based on **ConvNeXtV2 Tiny**, a modern convolutional neural network architecture designed for strong performance and efficiency.
+The model was selected not only for its performance but also for its computational efficiency.  
+Considering the limited GPU resources (e.g., Google Colab environment), a lightweight architecture was chosen to ensure stable training and practical deployment feasibility.
 
-본 프로젝트에서는 최신 CNN 구조인 **ConvNeXtV2 Tiny**를 사용하여 높은 성능과 효율성을 동시에 확보하고자 했습니다.
+본 프로젝트에서는 제한된 GPU 환경(예: Google Colab)을 고려하여,  
+성능과 계산 효율을 동시에 만족할 수 있는 경량 모델을 선택하였습니다.
 
 ---
 
