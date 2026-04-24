@@ -152,7 +152,7 @@ The ultimate goal is to design an AI screening system that not only predicts dis
 
 This project uses the **Eye Disease Image Dataset**, collected from multiple clinical sources.
 
-본 프로젝트는 실제 병원에서 수집된 안저 이미지 데이터셋을 활용합니다.
+> 본 프로젝트는 실제 병원에서 수집된 안저 이미지 데이터셋을 활용합니다.
 
 ---
 
@@ -191,7 +191,8 @@ This project uses the **Eye Disease Image Dataset**, collected from multiple cli
 ### 📈 Data Distribution
 
 <div align="center">
-  (여기에 클래스별 데이터 분포 그래프 이미지 넣는 곳)
+  <img src="figures/eda/class_distribution.png" width="70%"/><br/>
+  <b>Class Distribution Across 10 Disease Categories</b>
 </div>
 
 ---
@@ -199,16 +200,17 @@ This project uses the **Eye Disease Image Dataset**, collected from multiple cli
 ### 🖼️ Sample Images
 
 <div align="center">
-  (여기에 클래스별 샘플 이미지 예시 넣는 곳)
+  <img src="figures/eda/sample_images.png" width="85%"/><br/>
+  <b>Representative Fundus Images for Each Class</b>
 </div>
 
 ---
 
 ## 🔍 Exploratory Data Analysis
 
-EDA was conducted to understand dataset characteristics and identify potential challenges affecting model performance.
+EDA was conducted to understand dataset characteristics and identify potential challenges that could impact model performance and generalization.
 
-데이터의 특성과 학습에 영향을 줄 수 있는 요소를 파악하기 위해 EDA를 수행했습니다.
+> 데이터의 특성과 모델 성능 및 일반화에 영향을 줄 수 있는 요소를 파악하기 위해 EDA를 수행했습니다.
 
 ---
 
@@ -223,7 +225,8 @@ EDA was conducted to understand dataset characteristics and identify potential c
 ### 📊 Class Imbalance
 
 <div align="center">
-  (여기에 클래스 불균형 그래프 이미지 넣는 곳)
+  <img src="figures/eda/class_imbalance.png" width="70%"/><br/>
+  <b>Class Imbalance Distribution (Sorted)</b>
 </div>
 
 ---
@@ -231,7 +234,8 @@ EDA was conducted to understand dataset characteristics and identify potential c
 ### 🎨 RGB Channel Analysis
 
 <div align="center">
-  (여기에 RGB 채널 분석 시각화 이미지 넣는 곳)
+  <img src="figures/eda/rgb_analysis.png" width="50%"/><br/>
+  <b>RGB Channel Intensity Distribution</b>
 </div>
 
 ---
@@ -239,7 +243,8 @@ EDA was conducted to understand dataset characteristics and identify potential c
 ### 📐 Image Resolution Analysis
 
 <div align="center">
-  (여기에 이미지 해상도 분석 그래프 넣는 곳)
+  <img src="figures/eda/resolution_analysis.png" width="50%"/><br/>
+  <b>Image Resolution Distribution</b>
 </div>
 
 ---
@@ -250,7 +255,7 @@ EDA was conducted to understand dataset characteristics and identify potential c
 - 이미지 품질(밝기, 대비)이 일정하지 않음  
 - 증강 데이터가 포함되어 있어 분포 왜곡 가능성 존재  
 
-→ 이러한 특성은 모델 학습 및 일반화 성능에 직접적인 영향을 미칠 수 있음
+→ 이러한 특성은 모델 학습뿐만 아니라 **일반화 성능에도 직접적인 영향을 미치는 주요 요인**임
 
 ---
 
