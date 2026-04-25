@@ -594,17 +594,17 @@ while those with subtle or ambiguous features show unstable attention behavior.
 <table align="center">
   <tr>
     <td align="center">
-      <img src="figures/gradcam/glaucoma_example.png" width="90%"/><br/>
+      <img src="figures/gradcam/Glaucoma_example.png" width="90%"/><br/>
       <b>🟢 Good (Reliable)</b><br/>
       Glaucoma
     </td>
     <td align="center">
-      <img src="figures/gradcam/disc_edema_example.png" width="90%"/><br/>
+      <img src="figures/gradcam/Disc_Edema_example.png" width="90%"/><br/>
       <b>🟡 Partial (Unstable)</b><br/>
       Disc Edema
     </td>
     <td align="center">
-      <img src="figures/gradcam/myopia_example.png" width="90%"/><br/>
+      <img src="figures/gradcam/Myopia_example.png" width="90%"/><br/>
       <b>🔴 Poor (Unreliable)</b><br/>
       Myopia
     </td>
