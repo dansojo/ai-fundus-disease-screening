@@ -284,7 +284,8 @@ The model was trained using **transfer learning with pretrained ImageNet weights
 ---
 
 <div align="center">
-  (여기에 ConvNeXt 구조 설명 이미지 넣는 곳)
+  <img src="figures/architecture/convnext_architecture.png" width="75%"/><br/>
+  <b>ConvNeXt-Tiny Architecture Overview</b>
 </div>
 
 ---
@@ -324,7 +325,8 @@ Increase minority class representation during training.
 ---
 
 <div align="center">
-  (여기에 실험 구조 다이어그램 넣는 곳)
+  <img src="figures/results/experiment_design_diagram.png" width="70%"/><br/>
+  <b>Training Strategy Comparison Pipeline</b>
 </div>
 
 ---
@@ -341,7 +343,7 @@ Increase minority class representation during training.
 
 ## 📊 Overall Performance
 
-The model achieved strong performance across all classes, demonstrating its capability to classify retinal diseases effectively.
+The model achieved strong performance across all classes, showing its ability to classify retinal diseases effectively.
 
 본 모델은 전반적으로 높은 성능을 보였으며, 다양한 안저 질환을 효과적으로 분류할 수 있음을 확인하였습니다.
 
@@ -354,35 +356,76 @@ The model achieved strong performance across all classes, demonstrating its capa
 
 ---
 
-## ⚖️ Strategy Comparison
+## ⚖️ Training Strategy Comparison
 
 To address class imbalance, two strategies were evaluated:
 
-- **A:** Class Weight + Focal Loss  
-- **B:** Oversampling + Focal Loss  
+- **Strategy A:** Class Weight + Focal Loss  
+- **Strategy B:** Oversampling + Focal Loss  
+
+<div align="center">
+  <img src="figures/results/performance_summary_table.png" width="65%"/><br/>
+  <b>Performance Summary of Training Strategies</b>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="figures/results/ab_overall_performance.png" width="65%"/><br/>
+  <b>Overall Performance Comparison (A vs B)</b>
+</div>
 
 ---
 
-<div align="center">
-  (여기에 실험 결과 비교 표 이미지 넣는 곳)
-</div>
+### 💡 Strategy Insight
+
+Both strategies achieved strong overall performance.  
+However, **Class Weight + Focal Loss (Strategy A)** showed more stable and consistent results compared to the oversampling-based approach.
+
+두 전략 모두 높은 성능을 보였지만,  
+**Class Weight + Focal Loss 방식이 더 안정적인 성능**을 보였습니다.
+
+Oversampling helped increase minority class exposure, but it also introduced potential noise and overfitting due to repeated samples.
+
+---
+
+## 📈 Class-wise Performance
+
+In addition to overall metrics, class-wise performance was analyzed to understand how each strategy affected individual disease categories.
+
+전체 성능뿐만 아니라, 각 질환 클래스별 성능 차이를 확인하기 위해 클래스별 F1-score와 Recall을 비교하였습니다.
 
 <div align="center">
-  (여기에 A/B 성능 비교 그래프 넣는 곳)
+  <img src="figures/results/classwise_f1_comparison.png" width="75%"/><br/>
+  <b>Class-wise F1-score Comparison</b>
 </div>
+
+<br/>
+
+<div align="center">
+  <img src="figures/results/classwise_recall_comparison.png" width="75%"/><br/>
+  <b>Class-wise Recall Comparison</b>
+</div>
+
+---
+
+### 🔎 Class-wise Observation
+
+- Some classes achieved consistently high scores across both strategies  
+- Certain minority or visually ambiguous classes showed larger performance variation  
+- Strategy A generally provided more stable class-wise performance  
+
+→ 클래스별 성능을 비교한 결과, 일부 질환은 안정적으로 분류되었지만  
+시각적으로 유사하거나 데이터 수가 적은 클래스에서는 성능 편차가 존재했습니다.
 
 ---
 
 ## 🔍 Confusion Matrix Analysis
 
 The confusion matrix was used to analyze class-wise prediction behavior and misclassification patterns.  
-Row-normalized matrices were used for better interpretability.
+Row-normalized matrices were used to better compare prediction tendencies across classes.
 
 혼동 행렬을 통해 클래스별 예측 패턴과 오분류 경향을 분석하였습니다.
-
----
-
-## Comparison of Training Strategies
 
 <table align="center">
   <tr>
@@ -399,47 +442,26 @@ Row-normalized matrices were used for better interpretability.
 
 ---
 
-### 🔎 Key Observations
-
-- Most classes show strong classification performance with high diagonal dominance  
-- Several classes are classified almost perfectly, indicating clear visual patterns  
-
----
-
 ### ⚠️ Confusion Patterns
 
-- Misclassification mainly occurs among visually similar classes  
-- Notable confusion observed between:
-  - Class 3 ↔ Class 4  
-  - Class 3 ↔ Class 5  
-  - Class 6 ↔ Class 3  
+- Most classes show strong classification performance with high diagonal dominance  
+- Misclassification mainly occurs among visually similar disease classes  
+- Some confusion appears between classes with similar lesion locations or overlapping anatomical regions  
 
-→ 시각적으로 유사한 질환 간에서 혼동이 발생하는 경향을 확인할 수 있습니다.
-
-This suggests that the model struggles to distinguish diseases with **similar lesion locations and visual characteristics**, particularly in overlapping anatomical regions.
-
----
-
-### ⚖️ Strategy Insight
-
-- **Class Weight + Focal Loss (A)** shows more stable and consistent performance  
-- **Oversampling + Focal Loss (B)** slightly increases misclassification in certain classes  
-
-Possible reasons:
-
-- Repeated samples in oversampling  
-- Increased risk of overfitting  
-- Introduction of noise in minority classes  
+→ 전체적으로는 높은 분류 성능을 보였지만,  
+시각적으로 유사한 질환 간에서는 일부 혼동이 발생했습니다.
 
 ---
 
 ## 💡 Final Insight
 
-Although both strategies achieve strong overall performance,  
-**Class Weighting provides a better balance between stability and generalization.**
+Although the model achieved strong overall performance, reliability was not uniform across all classes.
 
-단순 정확도는 높지만 클래스별 성능 편차가 존재하며,  
-특히 유사 질환 간 구분에서 어려움을 보였습니다.
+The results suggest that overall accuracy alone is not sufficient for evaluating medical AI models.  
+Class-wise analysis, confusion matrix interpretation, and Grad-CAM visualization are necessary to understand model reliability more deeply.
+
+단순한 전체 정확도만으로는 의료 AI 모델의 신뢰성을 충분히 평가하기 어렵습니다.  
+따라서 클래스별 성능 분석, 혼동 행렬, Grad-CAM 해석을 함께 활용하는 것이 중요합니다.
 
 ---
 
