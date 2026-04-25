@@ -58,8 +58,50 @@ AI 기반 안저 질환 분류 및 설명 시스템을 직접 체험할 수 있�
 
 - 이미지를 업로드하여 질환 예측 결과 확인  
 - Top-3 질환 예측 및 위험도 제공  
-- Grad-CAM 기반 시각적 설명 확인  
+- Grad-CAM 기반 시각적 설명 확인
+
 ---
+
+# Problem Statement
+
+While deep learning models have shown strong performance in fundus image classification, most approaches focus primarily on improving overall accuracy.
+
+하지만 기존의 안저 이미지 분류 모델들은 높은 정확도를 달성하는 데 집중되어 있으며, 실제 의료 환경에서 중요한 문제는 충분히 다루지 못하고 있습니다.
+
+---
+
+### ❗ Key Challenges
+
+- **Do models truly learn disease-specific features, or rely on spurious patterns?**  
+  → 모델이 실제 병변을 이해하는가, 아니면 단순한 패턴에 의존하는가?
+
+- **Can visually similar retinal diseases be reliably distinguished?**  
+  → 시각적으로 유사한 질환을 안정적으로 구분할 수 있는가?
+
+- **Are model predictions interpretable and trustworthy in a clinical context?**  
+  → 모델의 예측 결과를 의료적으로 신뢰할 수 있는가?
+
+---
+
+### 🎯 Objective
+
+This project aims to move beyond simple classification and focuses on evaluating **model reliability and interpretability**.
+
+본 프로젝트는 단순한 분류 정확도를 넘어서,  
+**모델의 판단 근거와 신뢰성을 분석하는 것**에 초점을 맞추고 있습니다.
+
+To achieve this, we analyze model behavior using:
+
+- Grad-CAM for visual explanation  
+- Confusion matrix for class-wise reliability  
+- Comparative experiments for imbalance handling  
+
+---
+
+The ultimate goal is to design an AI screening system that not only predicts diseases, but also provides **clinically meaningful and interpretable insights**.
+
+---
+
 
 # System Architecture
 
@@ -102,54 +144,6 @@ The system follows a step-by-step pipeline:
 7. **Doctor Review**  
    → 의료진이 AI 결과를 참고하여 최종 판단 수행
 
----
-
-## 💡 Key Insight
-
-This architecture is not designed to replace doctors, but to **assist clinical decision-making by prioritizing high-risk cases and providing interpretable evidence**.
-
-본 시스템은 의료진을 대체하는 것이 아니라,  
-**고위험 환자를 선별하고 판단 근거를 제공하여 진단을 보조하는 역할**을 수행합니다.
-
----
-
-# Problem Statement
-
-While deep learning models have shown strong performance in fundus image classification, most approaches focus primarily on improving overall accuracy.
-
-하지만 기존의 안저 이미지 분류 모델들은 높은 정확도를 달성하는 데 집중되어 있으며, 실제 의료 환경에서 중요한 문제는 충분히 다루지 못하고 있습니다.
-
----
-
-### ❗ Key Challenges
-
-- **Do models truly learn disease-specific features, or rely on spurious patterns?**  
-  → 모델이 실제 병변을 이해하는가, 아니면 단순한 패턴에 의존하는가?
-
-- **Can visually similar retinal diseases be reliably distinguished?**  
-  → 시각적으로 유사한 질환을 안정적으로 구분할 수 있는가?
-
-- **Are model predictions interpretable and trustworthy in a clinical context?**  
-  → 모델의 예측 결과를 의료적으로 신뢰할 수 있는가?
-
----
-
-### 🎯 Objective
-
-This project aims to move beyond simple classification and focuses on evaluating **model reliability and interpretability**.
-
-본 프로젝트는 단순한 분류 정확도를 넘어서,  
-**모델의 판단 근거와 신뢰성을 분석하는 것**에 초점을 맞추고 있습니다.
-
-To achieve this, we analyze model behavior using:
-
-- Grad-CAM for visual explanation  
-- Confusion matrix for class-wise reliability  
-- Comparative experiments for imbalance handling  
-
----
-
-The ultimate goal is to design an AI screening system that not only predicts diseases, but also provides **clinically meaningful and interpretable insights**.
 
 ---
 
