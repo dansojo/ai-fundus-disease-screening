@@ -11,7 +11,14 @@ Retinal diseases such as diabetic retinopathy, glaucoma, and retinal detachment 
 
 This project presents an **AI-assisted fundus disease screening system** that classifies retinal fundus images into **10 disease categories** and provides **visual explanations using Grad-CAM**.
 
-The system is designed not to replace medical diagnosis, but to support clinicians by identifying high-risk cases and providing interpretable prediction results.
+---
+
+## 💡 Clinical Positioning
+
+This system is not intended to replace clinicians, but to **assist decision-making by prioritizing high-risk cases and providing interpretable evidence**.
+
+본 시스템은 의료진을 대체하는 것이 아니라,  
+고위험 환자를 선별하고 판단 근거를 제공하여 진단을 보조하는 역할을 수행합니다
 
 ---
 
@@ -619,50 +626,6 @@ Each example represents a different level of model reliability based on Grad-CAM
 Grad-CAM 결과를 기반으로 모델의 신뢰도를 세 가지 수준으로 구분하여 대표 사례를 시각화하였습니다.
 </p>
 
----
-
-# Clinical Perspective
-
-This system is designed to simulate how AI-based screening could be integrated into real-world clinical workflows.
-
-본 시스템은 실제 의료 환경에서 AI 기반 스크리닝이 어떻게 활용될 수 있는지를 가정하여 설계되었습니다.
-
----
-
-## 🏥 Workflow
-
-1. **Fundus Image Capture**  
-   → 안저 카메라를 통해 환자의 망막 이미지 획득  
-
-2. **Image Upload**  
-   → 병원 시스템 또는 플랫폼에 이미지 업로드  
-
-3. **AI Analysis**  
-   → 딥러닝 모델이 이미지를 분석  
-
-4. **Disease Prediction & Risk Assessment**  
-   → Top-3 질환 예측 및 위험도 제공  
-
-5. **Explainable AI (Grad-CAM)**  
-   → 모델의 판단 근거 시각화  
-
-6. **Doctor Review**  
-   → 의료진이 AI 결과를 참고하여 최종 판단  
-
----
-
-<div align="center">
-  (여기에 병원 사용 시나리오 흐름도 이미지 넣는 곳)
-</div>
-
----
-
-### 💡 Insight
-
-The system is not intended to replace clinicians, but to **assist decision-making by prioritizing high-risk cases and providing interpretable evidence**.
-
-본 시스템은 의료진을 대체하는 것이 아니라,  
-고위험 환자를 선별하고 판단 근거를 제공하여 진단을 보조하는 역할을 수행합니다.
 
 ---
 
