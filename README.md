@@ -591,21 +591,33 @@ while those with subtle or ambiguous features show unstable attention behavior.
 
 ## 🖼️ Representative Grad-CAM Examples
 
-<div align="center">
-  (Good 클래스 대표 이미지)
-</div>
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="figures/gradcam/glaucoma_gradcam.png" width="90%"/><br/>
+      <b>🟢 Good (Reliable)</b><br/>
+      Glaucoma
+    </td>
+    <td align="center">
+      <img src="figures/gradcam/disc_edema_gradcam.png" width="90%"/><br/>
+      <b>🟡 Partial (Unstable)</b><br/>
+      Disc Edema
+    </td>
+    <td align="center">
+      <img src="figures/gradcam/myopia_gradcam.png" width="90%"/><br/>
+      <b>🔴 Poor (Unreliable)</b><br/>
+      Myopia
+    </td>
+  </tr>
+</table>
 
-<br/>
+<p align="center">
+Each example represents a different level of model reliability based on Grad-CAM analysis.
+</p>
 
-<div align="center">
-  (Partial 클래스 대표 이미지)
-</div>
-
-<br/>
-
-<div align="center">
-  (Poor 클래스 대표 이미지)
-</div>
+<p align="center">
+Grad-CAM 결과를 기반으로 모델의 신뢰도를 세 가지 수준으로 구분하여 대표 사례를 시각화하였습니다.
+</p>
 
 ---
 
