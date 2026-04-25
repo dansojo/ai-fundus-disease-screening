@@ -431,11 +431,11 @@ Row-normalized matrices were used to better compare prediction tendencies across
 <table align="center">
   <tr>
     <td align="center">
-      <img src="https://github.com/user-attachments/assets/2ec06c01-e053-4371-a0b0-8c6a50f3bc1b" width="100%"/><br/>
+      <img src="figures/results/confusion_matrix_norm_A_classweight_focal_g2.png" width="100%"/><br/>
       <b>A.</b> Class Weight + Focal Loss
     </td>
     <td align="center">
-      <img src="https://github.com/user-attachments/assets/da8a03c8-7009-48e9-8edc-63fc0e21beab" width="100%"/><br/>
+      <img src="figures/results/confusion_matrix_norm_B_oversample_focal_g2.png" width="100%"/><br/>
       <b>B.</b> Oversampling + Focal Loss
     </td>
   </tr>
