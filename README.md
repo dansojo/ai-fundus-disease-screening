@@ -599,7 +599,7 @@ while those with subtle or ambiguous features show unstable attention behavior.
       Glaucoma
     </td>
     <td align="center">
-      <img src="figures/gradcam/Disc_Edema_example.png" width="90%"/><br/>
+      <img src="figures/gradcam/Disc Edema_example.png" width="90%"/><br/>
       <b>🟡 Partial (Unstable)</b><br/>
       Disc Edema
     </td>
