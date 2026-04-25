@@ -472,11 +472,18 @@ These findings are further analyzed using **Grad-CAM** in the next section to un
 ---
 
 # Explainable AI
-To improve model interpretability, **Grad-CAM** was applied to visualize the image regions that influenced model predictions.
+
+In medical imaging, high accuracy alone is not sufficient — understanding **why the model makes a prediction** is equally important.
+
+의료 영상 분야에서는 단순한 정확도뿐만 아니라,  
+**모델이 어떤 근거로 판단을 내렸는지**를 이해하는 것이 매우 중요합니다.
+
+To address this, **Grad-CAM** was applied to visualize the image regions that influenced model predictions.
 
 This allows us to verify whether the model focuses on clinically relevant regions rather than relying on irrelevant patterns.
 
 Grad-CAM을 통해 모델이 실제로 어떤 영역을 보고 판단하는지 시각적으로 확인할 수 있습니다.
+
 ---
 
 ## Example: Glaucoma
@@ -508,56 +515,97 @@ However, in some cases, the attention is diffused beyond the target region, indi
 ### 💡 한눈에 보기
 
 - 녹내장은 시신경 유두(Optic Disc)의 구조적 변화가 중요한 질환  
-- 모델은 주요 병변 위치(시신경 유두)를 잘 인식하고 있음  
-- 하지만 일부 경우에서는 불필요한 영역까지 주목하는 경향 존재  
+- 모델은 주요 병변 위치를 정확히 포착하고 있음  
+- 일부 경우에서는 불필요한 영역까지 확장되는 경향 존재  
 
 → 전반적으로는 올바른 특징을 학습했지만, 세밀한 구조 인식에는 한계가 있음
 
-These visualizations are further analyzed in the next section to evaluate model reliability across different classes.
+---
+
+These observations suggest that while the model captures meaningful regions,  
+its reliability may vary across different disease categories.
+
+→ 이러한 결과는 클래스별로 모델의 신뢰도가 다를 수 있음을 시사합니다.
 ---
 
 # Class-wise Model Reliability Analysis
 
-Based on Grad-CAM visualization, we analyzed how reliably the model identifies disease-specific features for each class.
+Based on Grad-CAM visualizations, we evaluated how reliably the model identifies disease-specific features for each class.
 
-We categorized the model behavior into three levels:
+Grad-CAM 결과를 기반으로, 모델이 각 질환의 특징을 얼마나 안정적으로 인식하는지 평가하였습니다.
 
-🟢 Good (Reliable)
-* Diabetic Retinopathy
-* Retinitis Pigmentosa
-* Glaucoma
+---
 
-→ The model consistently focused on clinically meaningful lesion regions.
+## 🧪 Evaluation Criteria
 
-🟡 Partial (Unstable)
-* Macular Scar
-* Central Serous Chorioretinopathy
-* Disc Edema
-* Retinal Detachment
+- **Consistency**: 동일 클래스에서 일관된 영역을 보는가  
+- **Relevance**: 실제 병변 위치를 보는가  
+- **Focus**: 불필요한 영역으로 확산되지 않는가  
 
-→ The model partially captured lesion areas but showed inconsistent or biased attention patterns.
+---
 
-🔴 Poor (Unreliable)
-* Pterygium
-* Myopia
-* Healthy
+## 📊 Reliability Categories
 
-→ The model failed to identify meaningful features or relied on irrelevant regions.
+### 🟢 Good (Reliable)
 
-## Key Insight
+- Diabetic Retinopathy  
+- Retinitis Pigmentosa  
+- Glaucoma  
+
+→ 모델이 병변 위치를 정확하고 일관되게 집중함
+
+---
+
+### 🟡 Partial (Unstable)
+
+- Macular Scar  
+- Central Serous Chorioretinopathy  
+- Disc Edema  
+- Retinal Detachment  
+
+→ 병변을 일부 인식하지만, 집중 영역이 불안정함
+
+---
+
+### 🔴 Poor (Unreliable)
+
+- Pterygium  
+- Myopia  
+- Healthy  
+
+→ 의미 있는 특징을 제대로 포착하지 못하거나 불필요한 영역에 집중함
+
+---
+
+## 💡 Key Insight
 
 The analysis reveals that model performance is not uniform across classes.
-Some diseases with strong visual patterns are well learned, while others with weak or ambiguous features are not reliably captured.
 
-This highlights the importance of class-wise evaluation beyond overall accuracy metrics.
+Diseases with strong and distinctive visual patterns are learned effectively,  
+while those with subtle or ambiguous features show unstable attention behavior.
 
-Representative Grad-CAM Examples
+→ 시각적 특징이 뚜렷한 질환은 잘 학습되었지만,  
+애매한 특징을 가진 질환에서는 불안정한 결과를 보였습니다.
 
-(여기에 Good 클래스 대표 Grad-CAM 이미지 1장 넣는 곳)
+---
 
-(여기에 Partial 클래스 대표 Grad-CAM 이미지 1장 넣는 곳)
+## 🖼️ Representative Grad-CAM Examples
 
-(여기에 Poor 클래스 대표 Grad-CAM 이미지 1장 넣는 곳)
+<div align="center">
+  (Good 클래스 대표 이미지)
+</div>
+
+<br/>
+
+<div align="center">
+  (Partial 클래스 대표 이미지)
+</div>
+
+<br/>
+
+<div align="center">
+  (Poor 클래스 대표 이미지)
+</div>
 
 ---
 
