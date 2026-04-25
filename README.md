@@ -284,7 +284,7 @@ The model was trained using **transfer learning with pretrained ImageNet weights
 ---
 
 <div align="center">
-  <img src="figures/architecture/convnext_architecture.png" width="75%"/><br/>
+  <img src="figures/architecture/A-ConvNext-Tiny-network-structure-B-ConvNext-Block-structure.png" width="75%"/><br/>
   <b>ConvNeXt-Tiny Architecture Overview</b>
 </div>
 
