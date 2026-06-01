@@ -652,42 +652,51 @@ Grad-CAM 결과를 기반으로 모델의 신뢰도를 세 가지 수준으로 �
 
 # Repository Structure
 
-The repository is organized to reflect the full pipeline from data analysis to model deployment.
+The repository is organized to reflect the complete workflow from exploratory data analysis to model development, evaluation, explainability analysis, and deployment.
 
-본 레포지토리는 데이터 분석부터 모델 학습, 그리고 데모 구현까지의 전체 흐름을 반영하여 구성되어 있습니다.
+본 레포지토리는 데이터 탐색(EDA)부터 모델 개발, 성능 분석, 설명 가능한 AI(Grad-CAM), 그리고 데모 배포까지의 전체 파이프라인을 반영하여 구성되어 있습니다.
 
-```
+```text
 eye-disease-ai-screening
 │
-├ README.md # Project documentation
+├── README.md
 │
-├ figures # Visualizations used in README
-│ ├ system_architecture.png
-│ ├ confusion_matrix_A.png
-│ ├ confusion_matrix_B.png
-│ ├ gradcam_example.png
-│ └ eda_visualizations.png
+├── figures
+│   ├── architecture
+│   │   └── system_architecture.png
+│   │
+│   ├── eda
+│   │   ├── class_distribution.png
+│   │   ├── sample_images.png
+│   │   ├── class_imbalance.png
+│   │   ├── rgb_analysis.png
+│   │   └── resolution_analysis.png
+│   │
+│   ├── results
+│   │   ├── performance_summary_table.png
+│   │   ├── ab_overall_performance.png
+│   │   ├── classwise_f1_comparison.png
+│   │   ├── classwise_recall_comparison.png
+│   │   ├── confusion_matrix_A.png
+│   │   └── confusion_matrix_B.png
+│   │
+│   └── gradcam
+│       ├── glaucoma_gradcam.png
+│       ├── disc_edema_gradcam.png
+│       └── myopia_gradcam.png
 │
-├ notebooks # Experiment and analysis notebooks
-│ ├ 01_EDA.ipynb # Data analysis & visualization
-│ ├ 02_training.ipynb # Model training pipeline
-│ └ 03_experiments.ipynb # Strategy comparison (A/B)
+├── notebooks
+│   ├── 01_EDA_and_Data_Preparation.ipynb
+│   ├── 02_Baseline_Training.ipynb
+│   ├── 03_Experiment_A_ClassWeight_FocalLoss.ipynb
+│   └── 04_Experiment_B_Oversampling_FocalLoss.ipynb
 │
-├ src # Core implementation
-│ ├ dataset.py # Data loading & preprocessing
-│ ├ model.py # Model architecture definition
-│ ├ train.py # Training logic
-│ └ inference.py # Inference & evaluation
+├── results
+│   ├── classification_report_A_classweight_focal_g2.csv
+│   ├── classification_report_B_oversample_focal_g2.csv
+│   ├── metrics_summary_A_classweight_focal_g2.csv
+│   └── metrics_summary_B_oversample_focal_g2.csv
 │
-└ demo # Deployment (Gradio app)
-└ app.py # Interactive demo interface
-```
-
-### 💡 Summary
-
-- **notebooks** → 데이터 분석 및 실험  
-- **src** → 모델 구현 및 학습 코드  
-- **figures** → README 시각화 자료  
-- **demo** → 실제 사용자 체험을 위한 서비스  
-
-→ 데이터 분석부터 모델 개발, 그리고 배포까지 전체 파이프라인을 포함한 프로젝트 구조입니다.
+└── demo
+    ├── app.py
+    └── requirements.txt
