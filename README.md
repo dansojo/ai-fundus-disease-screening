@@ -663,7 +663,7 @@ eye-disease-ai-screening
 │
 ├── figures
 │   ├── architecture
-│   │   └── system_architecture.png
+│   │   └── ConvNext-Tiny-structure.png
 │   │
 │   ├── eda
 │   │   ├── class_distribution.png
