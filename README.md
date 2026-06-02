@@ -1,115 +1,74 @@
-# 🩺 Fundus Vision  
-### AI-Based Retinal Disease Screening & Explainable Analysis System
+# Fundus Vision
+### AI-Based Retinal Disease Screening and Explainable Analysis System
 
-> AI-powered fundus disease classification with interpretability and clinical insight
+Fundus Vision is a portfolio project that demonstrates an AI-assisted retinal disease screening workflow using the Eye Disease Image Dataset. The project focuses on multi-class fundus image classification, class imbalance handling, model comparison, and Grad-CAM-based explainability.
 
----
-
-# Project Overview
-
-Retinal diseases such as diabetic retinopathy, glaucoma, and retinal detachment are major causes of vision loss worldwide. Early detection is essential for preventing irreversible damage, but large-scale screening remains challenging in many healthcare settings due to limited specialist availability.
-
-This project presents an **AI-assisted fundus disease screening system** that classifies retinal fundus images into **10 disease categories** and provides **visual explanations using Grad-CAM**.
+This repository is intended primarily for project presentation and result sharing. It documents the workflow, experiments, visual analysis, and demo implementation created from Google Colab outputs.
 
 ---
 
-## 💡 Clinical Positioning
+## Project Overview
 
-This system is not intended to replace clinicians, but to **assist decision-making by prioritizing high-risk cases and providing interpretable evidence**.
+Retinal diseases such as diabetic retinopathy, glaucoma, and retinal detachment can lead to severe vision loss if they are not detected early. Large-scale screening is difficult in many clinical environments because expert review is limited and image characteristics vary across datasets.
 
-본 시스템은 의료진을 대체하는 것이 아니라,  
-고위험 환자를 선별하고 판단 근거를 제공하여 진단을 보조하는 역할을 수행합니다
+This project builds an AI-assisted screening pipeline that classifies fundus images into 10 disease categories and provides visual explanations using Grad-CAM. The system is not intended to replace clinicians. It is designed as a research and educational prototype that shows how AI predictions can be paired with interpretable evidence.
 
----
+### Key Features
 
-## 🚀 Key Features
-
-- **10-class retinal disease classification**
-- **Top-3 prediction with probability scores**
-- **Risk level assessment**
-- **Grad-CAM-based visual explanation**
-- **Class-wise performance analysis (Confusion Matrix)**
-- **Gradio-based interactive demo**
+- 10-class retinal disease classification
+- Top-3 prediction output with probability scores
+- Risk-level interpretation based on prediction confidence
+- Class imbalance handling through two training strategies
+- Class-wise performance analysis with confusion matrices
+- Grad-CAM visual explanation for model reliability analysis
+- Gradio-based interactive demo deployed on Hugging Face Spaces
 
 ---
 
-## 💡 한눈에 보기 (Summary)
+## Live Demo
 
-- 안저 이미지를 기반으로 **10가지 질환 분류**
-- **Top-3 예측 + 위험도(Risk Level) 제공**
-- **Grad-CAM을 통한 판단 근거 시각화**
-- 의료진의 진단을 보조하는 **AI 스크리닝 시스템**
+[Fundus Vision Demo](https://huggingface.co/spaces/Danso0614/fundus-vision)
 
----
+The live demo allows users to upload a fundus image and view:
 
-## 🎯 Project Focus
+- Top-3 disease predictions
+- Confidence-based risk level
+- Grad-CAM heatmap and overlay visualization
+- Simple recommendation text for educational use
 
-This project goes beyond simple classification and focuses on **model interpretability and reliability in medical imaging**.
+### Demo and Model Weight Policy
 
----
+The demo code is included in [`demo/app.py`](demo/app.py), and it expects a model checkpoint named `best.pt`.
 
-# 🔗 Live Demo
+This GitHub repository does not include the trained model weight file. The `best.pt` checkpoint is managed only in the Hugging Face Space environment for the deployed demo. Therefore, cloning this repository alone is sufficient to review the project structure, notebooks, figures, metrics, and demo source code, but it is not intended to provide a fully runnable local inference package.
 
-👉 [🚀 Fundus Vision Demo 바로가기](https://huggingface.co/spaces/Danso0614/fundus-vision)
-
-This demo allows users to experience the AI-based fundus disease screening system.
-
-AI 기반 안저 질환 분류 및 설명 시스템을 직접 체험할 수 있습니다:
-
-- 이미지를 업로드하여 질환 예측 결과 확인  
-- Top-3 질환 예측 및 위험도 제공  
-- Grad-CAM 기반 시각적 설명 확인
+For dependency information related to the demo, see [`demo/requirements.txt`](demo/requirements.txt). A separate root-level `requirements.txt` is intentionally not provided because this repository is organized as a portfolio and result-sharing repository rather than a full reproducibility package.
 
 ---
 
-# Problem Statement
+## Problem Definition
 
-While deep learning models have shown strong performance in fundus image classification, most approaches focus primarily on improving overall accuracy.
+Deep learning models can achieve strong classification performance on fundus image datasets, but high overall accuracy is not enough for medical AI analysis. In medical imaging, it is also important to understand whether the model focuses on clinically meaningful regions and whether performance is reliable across disease classes.
 
-하지만 기존의 안저 이미지 분류 모델들은 높은 정확도를 달성하는 데 집중되어 있으며, 실제 의료 환경에서 중요한 문제는 충분히 다루지 못하고 있습니다.
+This project investigates three main questions:
 
----
-
-### ❗ Key Challenges
-
-- **Do models truly learn disease-specific features, or rely on spurious patterns?**  
-  → 모델이 실제 병변을 이해하는가, 아니면 단순한 패턴에 의존하는가?
-
-- **Can visually similar retinal diseases be reliably distinguished?**  
-  → 시각적으로 유사한 질환을 안정적으로 구분할 수 있는가?
-
-- **Are model predictions interpretable and trustworthy in a clinical context?**  
-  → 모델의 예측 결과를 의료적으로 신뢰할 수 있는가?
+- Can a lightweight model classify 10 fundus disease categories effectively?
+- How does severe class imbalance affect model behavior?
+- Do Grad-CAM results suggest that the model is focusing on clinically relevant regions?
 
 ---
 
-### 🎯 Objective
+## System Architecture
 
-This project aims to move beyond simple classification and focuses on evaluating **model reliability and interpretability**.
+The system follows a screening-style workflow:
 
-본 프로젝트는 단순한 분류 정확도를 넘어서,  
-**모델의 판단 근거와 신뢰성을 분석하는 것**에 초점을 맞추고 있습니다.
-
-To achieve this, we analyze model behavior using:
-
-- Grad-CAM for visual explanation  
-- Confusion matrix for class-wise reliability  
-- Comparative experiments for imbalance handling  
-
----
-
-The ultimate goal is to design an AI screening system that not only predicts diseases, but also provides **clinically meaningful and interpretable insights**.
-
----
-
-
-# System Architecture
-
-The overall system is designed to simulate a **real-world clinical screening workflow** using AI-assisted analysis.
-
-본 시스템은 실제 의료 환경에서 활용 가능한 **AI 기반 안저 질환 스크리닝 흐름**을 반영하여 설계되었습니다.
-
----
+1. Fundus image input
+2. Image preprocessing
+3. AI screening model inference
+4. Top-3 disease prediction
+5. Risk-level interpretation
+6. Grad-CAM visual explanation
+7. Human review support
 
 <div align="center">
   <img src="https://github.com/user-attachments/assets/34a225aa-c58d-43b5-9e2a-fbebbeacc462" width="70%"/>
@@ -117,131 +76,78 @@ The overall system is designed to simulate a **real-world clinical screening wor
 
 ---
 
-## 🔄 Workflow
+## Dataset
 
-The system follows a step-by-step pipeline:
+This project uses the Eye Disease Image Dataset, collected from multiple clinical sources.
 
-본 시스템은 다음과 같은 단계로 동작합니다:
+### Data Source
 
-1. **Fundus Image Capture**  
-   → 안저 카메라를 통해 환자의 망막 이미지 획득
+- Anwara Hamida Eye Hospital
+- BNS Zahrul Haque Eye Hospital
+- Bangladesh
 
-2. **Hospital System / Upload**  
-   → 병원 시스템 또는 플랫폼을 통해 이미지 업로드
+### Dataset Statistics
 
-3. **AI Screening Model**  
-   → 딥러닝 모델이 입력 이미지를 분석
+- Total images: 21,577
+- Original images: 5,335
+- Augmented images: 16,242
+- Number of classes: 10
 
-4. **Top-3 Disease Prediction**  
-   → 가장 가능성이 높은 질환 3개를 확률과 함께 출력
+### Disease Classes
 
-5. **Explainable AI (Grad-CAM)**  
-   → 모델이 판단한 근거를 시각적으로 제공
-
-6. **Risk Score Assessment**  
-   → 질환 위험도를 기반으로 추가 검사 필요성 판단
-
-7. **Doctor Review**  
-   → 의료진이 AI 결과를 참고하여 최종 판단 수행
-
-
----
-
-# Dataset & Exploratory Data Analysis
-
-## 📂 Dataset Overview
-
-This project uses the **Eye Disease Image Dataset**, collected from multiple clinical sources.
-
-> 본 프로젝트는 실제 병원에서 수집된 안저 이미지 데이터셋을 활용합니다.
+- Central Serous Chorioretinopathy
+- Diabetic Retinopathy
+- Disc Edema
+- Glaucoma
+- Healthy
+- Macular Scar
+- Myopia
+- Pterygium
+- Retinal Detachment
+- Retinitis Pigmentosa
 
 ---
 
-### 🏥 Data Source
+## Exploratory Data Analysis
 
-- Anwara Hamida Eye Hospital  
-- BNS Zahrul Haque Eye Hospital  
-- Bangladesh  
+EDA was conducted to understand dataset characteristics and identify issues that could affect model performance and generalization.
 
----
+### Key Observations
 
-### 📊 Dataset Statistics
+- Severe class imbalance exists across disease categories.
+- Image brightness and quality vary across samples.
+- Augmented images are included and may influence distribution.
+- Class-wise evaluation is important because the dataset is not uniformly balanced.
 
-- **Total images:** 21,577  
-- **Original images:** 5,335  
-- **Augmented images:** 16,242  
-- **Number of classes:** 10  
-
----
-
-### 🧾 Disease Classes
-
-- Central Serous Chorioretinopathy  
-- Diabetic Retinopathy  
-- Disc Edema  
-- Glaucoma  
-- Healthy  
-- Macular Scar  
-- Myopia  
-- Pterygium  
-- Retinal Detachment  
-- Retinitis Pigmentosa  
-
----
-
-### 📈 Data Distribution
+### Class Distribution
 
 <div align="center">
   <img src="figures/eda/class_distribution.png" width="70%"/><br/>
   <b>Class Distribution Across 10 Disease Categories</b>
 </div>
 
----
-
-### 🖼️ Sample Images
+### Sample Images
 
 <div align="center">
   <img src="figures/eda/sample_images.png" width="85%"/><br/>
   <b>Representative Fundus Images for Each Class</b>
 </div>
 
----
-
-## 🔍 Exploratory Data Analysis
-
-EDA was conducted to understand dataset characteristics and identify potential challenges that could impact model performance and generalization.
-
-> 데이터의 특성과 모델 성능 및 일반화에 영향을 줄 수 있는 요소를 파악하기 위해 EDA를 수행했습니다.
-
----
-
-### ⚠️ Key Observations
-
-- **Severe class imbalance exists across disease categories**  
-- **Image brightness and quality vary significantly**  
-- **Augmented images are included and may affect distribution**
-
----
-
-### 📊 Class Imbalance
+### Class Imbalance
 
 <div align="center">
   <img src="figures/eda/class_imbalance.png" width="70%"/><br/>
-  <b>Class Imbalance Distribution (Sorted)</b>
+  <b>Class Imbalance Distribution</b>
 </div>
 
----
-
-### 🎨 RGB Channel Analysis
+### RGB and Resolution Analysis
 
 <div align="center">
   <img src="figures/eda/rgb_analysis.png" width="50%"/><br/>
   <b>RGB Channel Intensity Distribution</b>
 </div>
 
----
-
-### 📐 Image Resolution Analysis
+<br/>
 
 <div align="center">
   <img src="figures/eda/resolution_analysis.png" width="50%"/><br/>
@@ -250,80 +156,40 @@ EDA was conducted to understand dataset characteristics and identify potential c
 
 ---
 
-### 💡 Summary
+## Model and Training Strategy
 
-- 데이터셋은 클래스 간 불균형이 심하게 존재함  
-- 이미지 품질(밝기, 대비)이 일정하지 않음  
-- 증강 데이터가 포함되어 있어 분포 왜곡 가능성 존재  
+The model is based on ConvNeXtV2 Tiny. This architecture was selected because it provides a practical balance between performance and computational efficiency, especially for Google Colab-based experimentation.
 
-→ 이러한 특성은 모델 학습뿐만 아니라 **일반화 성능에도 직접적인 영향을 미치는 주요 요인**임
+### Training Setup
 
----
-
-# Model & Training Strategy
-
-## 🧠 Model Architecture
-
-The model is based on **ConvNeXtV2 Tiny**, which was selected not only for its strong performance but also for its computational efficiency.  
-Considering the limited GPU resources (e.g., Google Colab environment), a lightweight architecture was chosen to ensure stable training and practical deployment feasibility.
-
-본 프로젝트에서는 **ConvNeXtV2 Tiny** 모델을 사용하였으며,  
-제한된 GPU 환경(예: Google Colab)을 고려하여 성능과 계산 효율을 동시에 만족할 수 있는 경량 구조를 선택하였습니다.
-
----
-
-### ⚙️ Training Setup
-
-- **Framework:** PyTorch  
-- **Input size:** 224 × 224  
-- **Optimizer:** AdamW  
-- **Scheduler:** CosineAnnealingLR  
-- **Mixed Precision Training (AMP):** Enabled  
-
-The model was trained using **transfer learning with pretrained ImageNet weights**, allowing faster convergence and improved generalization.
-
----
+- Framework: PyTorch
+- Backbone: ConvNeXtV2 Tiny
+- Input size: 224 x 224
+- Optimizer: AdamW
+- Scheduler: CosineAnnealingLR
+- Mixed Precision Training: enabled
+- Transfer learning with pretrained ImageNet weights
 
 <div align="center">
-  <img src="figures/architecture/A-ConvNext-Tiny-network-structure_B-ConvNext-Block-structure.png" width="75%"/><br/>
+  <img src="figures/architecture/ConvNext-Tiny-structure.png" width="75%"/><br/>
   <b>ConvNeXt-Tiny Architecture Overview</b>
 </div>
 
----
+### Class Imbalance Handling
 
-## ⚠️ Challenge: Class Imbalance
+Class imbalance was one of the most important challenges in this dataset. Two training strategies were compared:
 
-During data analysis, **severe class imbalance** was identified as a major challenge affecting model performance.
+#### Strategy A: Class Weight + Focal Loss
 
-데이터 분석 과정에서 클래스 간 데이터 수 불균형이 심하게 존재하는 것을 확인하였으며, 이는 모델의 편향을 유발할 수 있는 주요 문제로 판단되었습니다.
+- Applies class weights to balance loss contribution
+- Uses Focal Loss to focus learning on difficult samples
+- Intended to reduce bias toward majority classes
 
----
+#### Strategy B: Oversampling + Focal Loss
 
-## 🧪 Training Strategies
-
-To address this issue, two different approaches were explored:
-
----
-
-### 🔹 Strategy A: Class Weight + Focal Loss
-
-**Goal:**  
-Reduce bias toward majority classes and focus learning on difficult samples.
-
-- Class weights were applied to balance loss contribution  
-- Focal Loss was used to emphasize hard examples  
-
----
-
-### 🔹 Strategy B: Oversampling + Focal Loss
-
-**Goal:**  
-Increase minority class representation during training.
-
-- Minority classes were oversampled  
-- Focal Loss applied for stable learning  
-
----
+- Oversamples minority classes during training
+- Uses Focal Loss for stable learning
+- Intended to increase minority-class exposure
 
 <div align="center">
   <img src="figures/results/experiment_design_diagram.png" width="70%"/><br/>
@@ -332,37 +198,16 @@ Increase minority class representation during training.
 
 ---
 
-### 💡 Summary
+## Experimental Results
 
-- Class imbalance was the primary challenge in this dataset  
-- Two complementary strategies were tested to address it  
-- These approaches are further compared in the Results section
+The model achieved strong overall performance, but reliability varied by class. This makes class-wise analysis especially important for medical imaging tasks.
 
----
+### Overall Performance
 
-# Results & Model Analysis
+Best observed performance:
 
-## 📊 Overall Performance
-
-The model achieved strong performance across all classes, showing its ability to classify retinal diseases effectively.
-
-본 모델은 전반적으로 높은 성능을 보였으며, 다양한 안저 질환을 효과적으로 분류할 수 있음을 확인하였습니다.
-
-- **Accuracy**
-- **Precision**
-- **Recall**
-- **Macro F1 Score**
-
-👉 Best performance: **Macro F1 ≈ 0.90**
-
----
-
-## ⚖️ Training Strategy Comparison
-
-To address class imbalance, two strategies were evaluated:
-
-- **Strategy A:** Class Weight + Focal Loss  
-- **Strategy B:** Oversampling + Focal Loss  
+- Strategy A: Macro F1 approximately 0.90
+- Strategy B: Macro F1 approximately 0.89
 
 <div align="center">
   <img src="figures/results/performance_summary_table.png" width="65%"/><br/>
@@ -373,28 +218,14 @@ To address class imbalance, two strategies were evaluated:
 
 <div align="center">
   <img src="figures/results/ab_overall_performance.png" width="65%"/><br/>
-  <b>Overall Performance Comparison (A vs B)</b>
+  <b>Overall Performance Comparison</b>
 </div>
 
----
+### Model Comparison Insight
 
-### 💡 Strategy Insight
+Both strategies produced strong results. However, Strategy A, Class Weight + Focal Loss, showed more stable overall and class-wise behavior than the oversampling-based approach. Oversampling helped expose minority classes more often, but it may also increase repeated-sample effects and overfitting risk.
 
-Both strategies achieved strong overall performance.  
-However, **Class Weight + Focal Loss (Strategy A)** showed more stable and consistent results compared to the oversampling-based approach.
-
-두 전략 모두 높은 성능을 보였지만,  
-**Class Weight + Focal Loss 방식이 더 안정적인 성능**을 보였습니다.
-
-Oversampling helped increase minority class exposure, but it also introduced potential noise and overfitting due to repeated samples.
-
----
-
-## 📈 Class-wise Performance
-
-In addition to overall metrics, class-wise performance was analyzed to understand how each strategy affected individual disease categories.
-
-전체 성능뿐만 아니라, 각 질환 클래스별 성능 차이를 확인하기 위해 클래스별 F1-score와 Recall을 비교하였습니다.
+### Class-wise Performance
 
 <div align="center">
   <img src="figures/results/classwise_f1_comparison.png" width="75%"/><br/>
@@ -408,25 +239,9 @@ In addition to overall metrics, class-wise performance was analyzed to understan
   <b>Class-wise Recall Comparison</b>
 </div>
 
----
+### Confusion Matrix Analysis
 
-### 🔎 Class-wise Observation
-
-- Some classes achieved consistently high scores across both strategies  
-- Certain minority or visually ambiguous classes showed larger performance variation  
-- Strategy A generally provided more stable class-wise performance  
-
-→ 클래스별 성능을 비교한 결과, 일부 질환은 안정적으로 분류되었지만  
-시각적으로 유사하거나 데이터 수가 적은 클래스에서는 성능 편차가 존재했습니다.
-
----
-
-## 🔍 Confusion Matrix Analysis
-
-The confusion matrix was used to analyze class-wise prediction behavior and misclassification patterns.  
-Row-normalized matrices were used to better compare prediction tendencies across classes.
-
-혼동 행렬을 통해 클래스별 예측 패턴과 오분류 경향을 분석하였습니다.
+Row-normalized confusion matrices were used to compare class-wise prediction tendencies.
 
 <table align="center">
   <tr>
@@ -441,262 +256,165 @@ Row-normalized matrices were used to better compare prediction tendencies across
   </tr>
 </table>
 
----
+Key observations:
 
-### ⚠️ Confusion Patterns
-
-- Most classes show strong classification performance with high diagonal dominance  
-- Misclassification mainly occurs among visually similar disease classes  
-- Some confusion appears between classes with similar lesion locations or overlapping anatomical regions  
-
-→ 전체적으로는 높은 분류 성능을 보였지만,  
-시각적으로 유사한 질환 간에서는 일부 혼동이 발생했습니다.
+- Most classes show strong diagonal dominance.
+- Misclassification mainly appears among visually similar disease classes.
+- Some classes show lower reliability because of subtle features or limited examples.
 
 ---
 
-## 💡 Final Insight
+## Explainable AI with Grad-CAM
 
-Although the model achieved strong overall performance, reliability was not uniform across all classes.
+In medical imaging, explainability is important because model predictions need to be interpreted carefully. Grad-CAM was used to visualize which image regions influenced the model prediction.
 
-The results suggest that overall accuracy alone is not sufficient for evaluating medical AI models.  
-Class-wise analysis, confusion matrix interpretation, and Grad-CAM visualization are necessary to understand model reliability more deeply.
+The goal was not only to produce heatmaps, but also to assess whether attention patterns were clinically meaningful and consistent across disease categories.
 
-단순한 전체 정확도만으로는 의료 AI 모델의 신뢰성을 충분히 평가하기 어렵습니다.  
-따라서 클래스별 성능 분석, 혼동 행렬, Grad-CAM 해석을 함께 활용하는 것이 중요합니다.
-
----
-
-## 🔗 Next Step
-
-These findings are further analyzed using **Grad-CAM** in the next section to understand **where the model is focusing** during prediction.
-
----
-
-# Explainable AI
-
-In medical imaging, high accuracy alone is not sufficient — understanding **why the model makes a prediction** is equally important.
-
-의료 영상 분야에서는 단순한 정확도뿐만 아니라,  
-**모델이 어떤 근거로 판단을 내렸는지**를 이해하는 것이 매우 중요합니다.
-
-To address this, **Grad-CAM** was applied to visualize the image regions that influenced model predictions.
-
-This allows us to verify whether the model focuses on clinically relevant regions rather than relying on irrelevant patterns.
-
-Grad-CAM을 통해 모델이 실제로 어떤 영역을 보고 판단하는지 시각적으로 확인할 수 있습니다.
-
----
-
-## Example: Glaucoma
+### Example: Glaucoma
 
 <table align="center">
   <tr>
     <td align="center">
       <img src="https://github.com/user-attachments/assets/f1e9626a-b2bb-4a6f-aa82-54776ea61a8f" height="500"/><br/>
-      <b>Original / Heatmap / Overlay Visualization (5 Samples)</b>
+      <b>Original / Heatmap / Overlay Visualization</b>
     </td>
   </tr>
 </table>
 
-<p align="center">
-The model primarily focuses on the optic disc region when predicting glaucoma.
-</p>
+The model primarily focuses on the optic disc region when predicting glaucoma, which is clinically relevant because glaucoma is associated with structural changes around the optic disc. Some attention maps still spread beyond the target region, showing that the model has limitations in fine-grained localization.
 
 ---
 
-### Interpretation
+## Class-wise Model Reliability
 
-Glaucoma is characterized by structural changes in the optic disc, particularly an increased cup-to-disc ratio.
+Grad-CAM examples were grouped into reliability categories based on consistency, relevance, and focus.
 
-The Grad-CAM visualization indicates that the model consistently focuses on the optic disc region, suggesting that it has learned clinically relevant features.  
-However, in some cases, the attention is diffused beyond the target region, indicating limitations in capturing fine-grained structural details.
+### Good
 
----
+- Diabetic Retinopathy
+- Retinitis Pigmentosa
+- Glaucoma
 
-### 💡 한눈에 보기
+These classes showed relatively consistent focus on meaningful regions.
 
-- 녹내장은 시신경 유두(Optic Disc)의 구조적 변화가 중요한 질환  
-- 모델은 주요 병변 위치를 정확히 포착하고 있음  
-- 일부 경우에서는 불필요한 영역까지 확장되는 경향 존재  
+### Partial
 
-→ 전반적으로는 올바른 특징을 학습했지만, 세밀한 구조 인식에는 한계가 있음
+- Macular Scar
+- Central Serous Chorioretinopathy
+- Disc Edema
+- Retinal Detachment
 
----
+These classes showed partially relevant but less stable attention patterns.
 
-These observations suggest that while the model captures meaningful regions,  
-its reliability may vary across different disease categories.
+### Poor
 
-→ 이러한 결과는 클래스별로 모델의 신뢰도가 다를 수 있음을 시사합니다.
----
+- Pterygium
+- Myopia
+- Healthy
 
-# Class-wise Model Reliability Analysis
-
-Based on Grad-CAM visualizations, we evaluated how reliably the model identifies disease-specific features for each class.
-
-Grad-CAM 결과를 기반으로, 모델이 각 질환의 특징을 얼마나 안정적으로 인식하는지 평가하였습니다.
-
----
-
-## 🧪 Evaluation Criteria
-
-- **Consistency**: 동일 클래스에서 일관된 영역을 보는가  
-- **Relevance**: 실제 병변 위치를 보는가  
-- **Focus**: 불필요한 영역으로 확산되지 않는가  
-
----
-
-## 📊 Reliability Categories
-
-### 🟢 Good (Reliable)
-
-- Diabetic Retinopathy  
-- Retinitis Pigmentosa  
-- Glaucoma  
-
-→ 모델이 병변 위치를 정확하고 일관되게 집중함
-
----
-
-### 🟡 Partial (Unstable)
-
-- Macular Scar  
-- Central Serous Chorioretinopathy  
-- Disc Edema  
-- Retinal Detachment  
-
-→ 병변을 일부 인식하지만, 집중 영역이 불안정함
-
----
-
-### 🔴 Poor (Unreliable)
-
-- Pterygium  
-- Myopia  
-- Healthy  
-
-→ 의미 있는 특징을 제대로 포착하지 못하거나 불필요한 영역에 집중함
-
----
-
-## 💡 Key Insight
-
-The analysis reveals that model performance is not uniform across classes.
-
-Diseases with strong and distinctive visual patterns are learned effectively,  
-while those with subtle or ambiguous features show unstable attention behavior.
-
-→ 시각적 특징이 뚜렷한 질환은 잘 학습되었지만,  
-애매한 특징을 가진 질환에서는 불안정한 결과를 보였습니다.
-
----
-
-## 🖼️ Representative Grad-CAM Examples
+These classes showed weaker or less clinically meaningful focus in representative Grad-CAM examples.
 
 <table align="center">
   <tr>
     <td align="center">
       <img src="figures/gradcam/Glaucoma_example.png" width="90%"/><br/>
-      <b>🟢 Good (Reliable)</b><br/>
+      <b>Good</b><br/>
       Glaucoma
     </td>
     <td align="center">
       <img src="figures/gradcam/Disc Edema_example.png" width="90%"/><br/>
-      <b>🟡 Partial (Unstable)</b><br/>
+      <b>Partial</b><br/>
       Disc Edema
     </td>
     <td align="center">
       <img src="figures/gradcam/Myopia_example.png" width="90%"/><br/>
-      <b>🔴 Poor (Unreliable)</b><br/>
+      <b>Poor</b><br/>
       Myopia
     </td>
   </tr>
 </table>
 
-<p align="center">
-Each example represents a different level of model reliability based on Grad-CAM analysis.
-</p>
+---
 
-<p align="center">
-Grad-CAM 결과를 기반으로 모델의 신뢰도를 세 가지 수준으로 구분하여 대표 사례를 시각화하였습니다.
-</p>
+## Limitations
 
+- This project is for research, learning, and portfolio presentation only.
+- The model is not a certified medical device.
+- It should not be used as a replacement for medical diagnosis.
+- Performance may vary under real-world image quality and dataset shifts.
+- Some disease classes show unstable Grad-CAM attention.
+- The repository does not include the trained model checkpoint.
 
 ---
 
-# Future Work & Limitations
+## Future Work
 
-## ⚠️ Limitations
-
-- This project is intended for **research and educational purposes only**  
-- The system is **not a certified medical device**  
-- Performance may vary across datasets and real-world conditions  
-- Some classes show lower reliability due to subtle or ambiguous features  
-
-본 프로젝트는 연구 및 학습 목적의 시스템이며,  
-의료 기기로 인증된 모델이 아니므로 실제 진단을 대체할 수 없습니다.
+- Improve reliability for underrepresented and visually ambiguous classes.
+- Evaluate the model on external validation datasets.
+- Compare Grad-CAM with additional explainability methods.
+- Improve lesion-focused localization.
+- Optimize inference for real-time deployment.
+- Explore clinical decision-support integration in a validated setting.
 
 ---
 
-## 🚀 Future Work
+## Repository Structure
 
-- Expand dataset through real clinical data collection  
-- Improve performance for underrepresented classes  
-- Enhance model interpretability with advanced methods  
-- Optimize model for real-time deployment  
-- Integrate into clinical decision support systems  
-
-향후에는 데이터 확장, 성능 개선, 실시간 시스템 구축 등을 통해  
-실제 의료 환경에서 활용 가능한 수준으로 발전시키는 것을 목표로 합니다.
-
----
-
-# Repository Structure
-
-The repository is organized to reflect the complete workflow from exploratory data analysis to model development, evaluation, explainability analysis, and deployment.
-
-본 레포지토리는 데이터 탐색(EDA)부터 모델 개발, 성능 분석, 설명 가능한 AI(Grad-CAM), 그리고 데모 배포까지의 전체 파이프라인을 반영하여 구성되어 있습니다.
+The repository is organized to preserve the current project workflow and Colab-generated outputs.
 
 ```text
-eye-disease-ai-screening
-│
-├── README.md
-│
-├── figures
-│   ├── architecture
-│   │   └── ConvNext-Tiny-structure.png
-│   │
-│   ├── eda
-│   │   ├── class_distribution.png
-│   │   ├── sample_images.png
-│   │   ├── class_imbalance.png
-│   │   ├── rgb_analysis.png
-│   │   └── resolution_analysis.png
-│   │
-│   ├── results
-│   │   ├── performance_summary_table.png
-│   │   ├── ab_overall_performance.png
-│   │   ├── classwise_f1_comparison.png
-│   │   ├── classwise_recall_comparison.png
-│   │   ├── confusion_matrix_A.png
-│   │   └── confusion_matrix_B.png
-│   │
-│   └── gradcam
-│       ├── glaucoma_gradcam.png
-│       ├── disc_edema_gradcam.png
-│       └── myopia_gradcam.png
-│
-├── notebooks
-│   ├── 01_EDA_and_Data_Preparation.ipynb
-│   ├── 02_Baseline_Training.ipynb
-│   ├── 03_Experiment_A_ClassWeight_FocalLoss.ipynb
-│   └── 04_Experiment_B_Oversampling_FocalLoss.ipynb
-│
-├── results
-│   ├── classification_report_A_classweight_focal_g2.csv
-│   ├── classification_report_B_oversample_focal_g2.csv
-│   ├── metrics_summary_A_classweight_focal_g2.csv
-│   └── metrics_summary_B_oversample_focal_g2.csv
-│
-└── demo
-    ├── app.py
-    └── requirements.txt
+ai-fundus-disease-screening
+|
+|-- README.md
+|
+|-- figures/
+|   |-- architecture/
+|   |   `-- ConvNext-Tiny-structure.png
+|   |
+|   |-- eda/
+|   |   |-- class_distribution.png
+|   |   |-- class_imbalance.png
+|   |   |-- resolution_analysis.png
+|   |   |-- rgb_analysis.png
+|   |   `-- sample_images.png
+|   |
+|   |-- results/
+|   |   |-- ab_overall_performance.png
+|   |   |-- classwise_f1_comparison.png
+|   |   |-- classwise_recall_comparison.png
+|   |   |-- confusion_matrix_norm_A_classweight_focal_g2.png
+|   |   |-- confusion_matrix_norm_B_oversample_focal_g2.png
+|   |   |-- experiment_design_diagram.png
+|   |   `-- performance_summary_table.png
+|   |
+|   `-- gradcam/
+|       |-- Disc Edema_example.png
+|       |-- Glaucoma_example.png
+|       `-- Myopia_example.png
+|
+|-- notebooks/
+|   |-- 01_EDA_and_Data_Preparation.ipynb
+|   |-- 02_Baseline_Training_clean.ipynb
+|   |-- 03_Experiment_A_ClassWeight_FocalLoss_clean.ipynb
+|   `-- 04_Experiment_B_Oversampling_FocalLoss_clean.ipynb
+|
+|-- results/
+|   |-- classification_report_A_classweight_focal_g2.csv
+|   |-- classification_report_B_oversample_focal_g2.csv
+|   |-- metrics_summary_A_classweight_focal_g2.csv
+|   `-- metrics_summary_B_oversample_focal_g2.csv
+|
+`-- demo/
+    |-- README.md
+    |-- app.py
+    `-- requirements.txt
+```
+
+---
+
+## Notes
+
+- The notebooks document the Google Colab-based workflow used to generate the project outputs.
+- Figures and CSV files are retained as project artifacts for presentation and review.
+- The Hugging Face Space manages the deployed demo environment and model checkpoint.
+- This repository prioritizes clear project communication over full local reproducibility.
