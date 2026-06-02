@@ -49,7 +49,15 @@ This project builds an AI-assisted screening pipeline that classifies fundus ima
 
 ## Live Demo
 
-[Fundus Vision Demo](https://huggingface.co/spaces/Danso0614/fundus-vision)
+### Try the Gradio Demo on Hugging Face Spaces
+
+<p align="center">
+  <a href="https://huggingface.co/spaces/Danso0614/fundus-vision">
+    <img src="https://img.shields.io/badge/Launch%20Demo-Hugging%20Face%20Spaces-yellow?style=for-the-badge&logo=huggingface" alt="Launch Demo on Hugging Face Spaces"/>
+  </a>
+</p>
+
+Direct link: [https://huggingface.co/spaces/Danso0614/fundus-vision](https://huggingface.co/spaces/Danso0614/fundus-vision)
 
 The live demo allows users to upload a fundus image and view:
 
